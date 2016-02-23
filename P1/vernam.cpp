@@ -13,7 +13,7 @@ vernam::vernam(string clave)
 
 vernam::vernam(string clave, int num)
 {
-	clave_=conversor_to_bool(clave);
+	clave_=clave;
 }
 
 string vernam::encriptar(string mensaje){
