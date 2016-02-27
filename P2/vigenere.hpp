@@ -16,4 +16,5 @@ public:
 	~vigenere(void);
 	string imprimir(void);
 	void corrector(void);
+	string cifrar(void);
 };
