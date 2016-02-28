@@ -44,5 +44,28 @@ string vigenere::imprimir(void){
 }
 
 string vigenere::cifrar (void){
+	int j, caracter = 0;
+	string mensaje_cifrado;
+	for (int i=0; i<mensaje_.length();i++){
+		if (j>=clave_.length()){
+			j=0;
+		}
 
+		if (mensaje_[i]!='?'){
+			caracter = (((mensaje_[i])-65)+((clave_[j])-65));
+		if (caracter>=26)
+			caracter=caracter-26;
+		caracter = caracter+65;
+		}
+		else{
+			caracter = mensaje_[i];
+		}
+		j++;
+		mensaje_cifrado.append(string(1, (char)(caracter)));
+	}
+	return mensaje_cifrado;
 }
+
+
+
+
