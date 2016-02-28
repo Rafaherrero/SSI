@@ -1,15 +1,18 @@
 #include "vigenere.hpp"
 
 vigenere::vigenere(void):
-mensaje_(0),
-clave_(0)
+mensaje_(""),
+clave_(""),
+mensaje_cifrado_("")
 {}
 
 vigenere::vigenere(string clave_cifrar, string mensaje_sin_cifrar):
 mensaje_(mensaje_sin_cifrar),
-clave_(clave_cifrar)
+clave_(clave_cifrar),
+mensaje_cifrado_("")
 {
 	corrector();
+	cifrar();
 }
 
 vigenere::~vigenere (void){
@@ -39,13 +42,16 @@ void vigenere::corrector (void){
 	}
 }
 
-string vigenere::imprimir(void){
+string vigenere::imprimir_formato(void){
 	return mensaje_;
 }
 
-string vigenere::cifrar (void){
+string vigenere::imprimir_cifrado (void){
+	return mensaje_cifrado_;
+}
+
+void vigenere::cifrar (void){
 	int j, caracter = 0;
-	string mensaje_cifrado;
 	for (int i=0; i<mensaje_.length();i++){
 		if (j>=clave_.length()){
 			j=0;
@@ -60,10 +66,58 @@ string vigenere::cifrar (void){
 		else{
 			caracter = mensaje_[i];
 		}
+
 		j++;
-		mensaje_cifrado.append(string(1, (char)(caracter)));
+		mensaje_cifrado_.append(string(1, (char)(caracter)));
 	}
-	return mensaje_cifrado;
+}
+
+string vigenere::descifrar (void){
+	int j, caracter = 0;
+	string mensaje_descifrado;
+	for (int i=0; i<mensaje_cifrado_.length();i++){
+		if (j>=clave_.length()){
+			j=0;
+		}
+
+		if (mensaje_cifrado_[i]!='?'){
+			caracter = ((mensaje_cifrado_[i]-65)-(clave_[j]-65));
+		if (caracter<0)
+			caracter=caracter+26;
+		caracter = caracter+65;
+		}
+		else{
+			caracter = mensaje_[i];
+		}
+
+		j++;
+		mensaje_descifrado.append(string(1, (char)(caracter)));
+	}
+	return mensaje_descifrado;
+}
+
+string vigenere::descifrar (string mensaje_cf, string clave_descifrar){
+	int j, caracter = 0;
+	string mensaje_descifrado;
+	for (int i=0; i<mensaje_cf.length();i++){
+		if (j>=clave_descifrar.length()){
+			j=0;
+		}
+
+		if (mensaje_cf[i]!='?'){
+			caracter = ((mensaje_cf[i]-65)-(clave_descifrar[j]-65));
+		if (caracter<0)
+			caracter=caracter+26;
+		caracter = caracter+65;
+		}
+		else{
+			caracter = mensaje_[i];
+		}
+
+		j++;
+		mensaje_descifrado.append(string(1, (char)(caracter)));
+	}
+	return mensaje_descifrado;
 }
 
 
