@@ -12,7 +12,6 @@ int main (void){
 	cout << "====================" << endl;
 	cout << "El mensaje sin formato es: " << mensaje_sin_cifrar << endl;
 	cout << "La clave de cifrado es: " << clave_cifrar << endl;
-	cout << A.imprimir() << endl;
-	string mensaje_cifrado = A.cifrar();
-	cout << "El mensaje cifrado es: " << mensaje_cifrado << endl;
+	cout << "El mensaje con formato es: " << A.imprimir() << endl;
+	cout << "El mensaje cifrado es: " << A.cifrar() << endl;
 }

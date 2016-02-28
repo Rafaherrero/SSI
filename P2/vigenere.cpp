@@ -52,7 +52,7 @@ string vigenere::cifrar (void){
 		}
 
 		if (mensaje_[i]!='?'){
-			caracter = (((mensaje_[i])-65)+((clave_[j])-65));
+			caracter = ((mensaje_[i]-65)+(clave_[j]-65));
 		if (caracter>=26)
 			caracter=caracter-26;
 		caracter = caracter+65;
