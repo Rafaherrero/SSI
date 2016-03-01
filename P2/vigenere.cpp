@@ -17,7 +17,7 @@ mensaje_cifrado_("")
 	corrector();
 
 	//Llamada al metodo cifrar para almacenar en la clase el mensaje cifrado
-	cifrar();
+	cifrar(); 
 }
 
 //Destructor que elimina los 3 atributos de la clase
@@ -175,6 +175,7 @@ string vigenere::cifrar (string mensaje_df, string clave_cf){
 		j++;
 		mensaje_cf.append(string(1, (char)(caracter)));
 	}
+
 	return mensaje_cf;
 }
 
@@ -201,4 +202,18 @@ string vigenere::descifrar (string mensaje_cf, string clave_descifrar){
 		mensaje_descifrado.append(string(1, (char)(caracter)));
 	}
 	return mensaje_descifrado;
+}
+
+//Modificación de la práctica
+string vigenere::cesar (void){
+	string clave_cesar;
+	int j=0;
+	for (int i=0; i<clave_.length();i++){
+		for (int j=0; j<mensaje_cifrado_.length();j+=clave_.length()){
+			clave_cesar.append(string(1,mensaje_cifrado_[i+j]));
+		}
+		clave_cesar.append(string(1,'\n'));
+	}
+	clave_cesar.erase(clave_cesar.length()-1);
+	return clave_cesar;
 }

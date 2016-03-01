@@ -34,4 +34,7 @@ public:
 	void corrector (string& mensaje_df, string& clave_cf);
 	string cifrar (string mensaje_df, string clave_cf);
 	string descifrar (string mensaje_cf, string clave_descifrar);
+
+	//Modificación de la práctica
+	string cesar(void);
 };
