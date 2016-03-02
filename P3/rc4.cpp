@@ -11,13 +11,18 @@ rc4::rc4 (string semilla):
 S_(256, 0),
 K_(256, 0)
 {
-	for (int i=0; i<=S_.length();i++){
-		S[i] = i;
-		K[i] = semilla[i%semilla.length()];
+	for (int i=0; i<S_.size();i++){
+		S_[i] = i;
+		K_[i] = semilla[i%semilla.length()];
+
 	}
-	j=0;
-	for (int i=0; i<S_.length();i++){
-		j = (j+S_[i]+K_[i])%S_.length();
+	int j=0;
+	for (int i=0; i<S_.size();i++){
+		j = (j+S_[i]+K_[i])%S_.size();
 		swap(S_[i],S_[j]);
 	}
+}
+
+rc4::~rc4(void){
+
 }
