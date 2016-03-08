@@ -6,14 +6,16 @@ rc4::rc4 (void):
 S_(0),
 K_(0),
 i_(0),
-j_(0)
+j_(0),
+k_(0)
 {}
 
 rc4::rc4 (std::vector<unsigned char> semilla):
 S_(256, 0),
 K_(256, 0),
 i_(0),
-j_(0)
+j_(0),
+k_(0)
 {
 	for (int i=0; i<S_.size();i++){
 		S_[i] = i;
@@ -40,6 +42,15 @@ unsigned char rc4::prga (void){
 	return (S_[t]);
 }
 
+unsigned char rc4::prga_mod (void){
+	i_ = (i_+5)%256;
+	j_ = (k_+S_[(j_+S_[i_])%256])%256;
+	k_ = (i_+k_+S_[j_])%256;
+	swap(S_[i_],S_[j_]);
+	t_ = S_[(j_+S_[(i_+S_[(t_+k_)%256])%256])%256];
+	return (S_[t_]);
+}
+
 std::vector<unsigned char> rc4::cifrar (std::vector<unsigned char> mensaje){
 	unsigned char cf;
 	std::vector<unsigned char> mensaje_cifrado(mensaje.size(),0);
@@ -47,6 +58,20 @@ std::vector<unsigned char> rc4::cifrar (std::vector<unsigned char> mensaje){
 
 	for (int i=0; i< mensaje.size();i++){
 		cf = prga();
+		secuencia_[i] = cf;
+		mensaje_cifrado[i] = mensaje[i]^cf;
+	}
+
+	return mensaje_cifrado;
+}
+
+std::vector<unsigned char> rc4::cifrar_mod (std::vector<unsigned char> mensaje){
+	unsigned char cf;
+	std::vector<unsigned char> mensaje_cifrado(mensaje.size(),0);
+	secuencia_.resize(mensaje.size(),0);
+
+	for (int i=0; i< mensaje.size();i++){
+		cf = prga_mod();
 		secuencia_[i] = cf;
 		mensaje_cifrado[i] = mensaje[i]^cf;
 	}
