@@ -17,5 +17,5 @@ public:
 	~a5 (void);
 	unsigned int mayoria(void);
 	bool generar(void);
-
+	void imprimir_datos(void);
 };
