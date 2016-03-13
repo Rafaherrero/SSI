@@ -3,4 +3,6 @@
 using namespace std;
 
 int main (void){
+	a5 hola;
+	hola.prueba();
 }
