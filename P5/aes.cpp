@@ -66,12 +66,32 @@ void aes::encriptar(void){
 	expan_clave();
 	addRoundKey();
 
+	cout << endl << endl << "=================" << " Iteracción 0 " << "=================" << endl;
+	cout << "Subclave 0:     ";
+	for (int i=0; i<4; i++){
+		for (int j=0; j<4; j++)
+			cout << hex << setfill('0') << setw(2) << int(clave_exp_ [0][j][i]);
+	}
+	cout << endl << "Texto cifrado:  ";
+	for (int i=0; i<4; i++){
+		for (int j=0; j<4; j++)
+			cout << hex << setfill('0') << setw(2) << int(texto_cf_[j][i]);
+	}
+
+
 	for (int i=1;i<10;i++){
 		iter_++;
 		subBytes();
 		shiftRow();
 		mixColumn();
+		addRoundKey();
 	}
+
+	iter_++;
+	subBytes();
+	shiftRow();
+	addRoundKey();
+	cout << endl;
 }
 
 void aes::addRoundKey(void){
@@ -114,5 +134,21 @@ void aes::shiftRow(void){
 }
 
 void aes::mixColumn(void){
-	
+	unsigned char a[4];
+	unsigned char b[4];
+	unsigned char h;
+
+	for (int i=0; i<4; i++){
+		for (int j=0; j<4; j++){
+			a[j] = texto_cf_[j][i];
+			h = texto_cf_[j][i] & 0x80;
+			b[j] = texto_cf_[j][i] << 1;
+			if(h == 0x80)
+				b[j] ^= 0x1b;
+		}
+		texto_cf_[0][i] = b[0] ^ a[3] ^ a[2] ^ b[1] ^ a[1];
+		texto_cf_[1][i] = b[1] ^ a[0] ^ a[3] ^ b[2] ^ a[2];
+		texto_cf_[2][i] = b[2] ^ a[1] ^ a[0] ^ b[3] ^ a[3];
+		texto_cf_[3][i] = b[3] ^ a[2] ^ a[1] ^ b[0] ^ a[0];
+	}
 }

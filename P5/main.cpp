@@ -41,6 +41,18 @@ int main (void){
 	texto[2][3] = 0xEE;
 	texto[3][3] = 0xFF;
 
+	cout << "===============" << " CIFRADO RIJNDAEL " << "===============" << endl;
+	cout << "Clave cifrante: ";
+	for (int i=0; i<4; i++){
+		for (int j=0; j<4; j++)
+			cout << hex << setfill('0') << setw(2) << int(clave[j][i]);
+	}
+	cout << endl << "Texto a cifrar: ";
+	for (int i=0; i<4; i++){
+		for (int j=0; j<4; j++)
+			cout << hex << setfill('0') << setw(2) << int(texto[j][i]);
+	}
+	
 	aes rij(clave,texto);
 
 }
