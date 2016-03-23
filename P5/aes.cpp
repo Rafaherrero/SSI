@@ -78,19 +78,43 @@ void aes::encriptar(void){
 			cout << hex << setfill('0') << setw(2) << int(texto_cf_[j][i]);
 	}
 
-
 	for (int i=1;i<10;i++){
 		iter_++;
 		subBytes();
 		shiftRow();
 		mixColumn();
 		addRoundKey();
+
+		cout << endl << endl << "=================" << " Iteracción " << iter_ << " =================" << endl;
+		cout << "Subclave " << iter_ << ":     ";
+		for (int i=0; i<4; i++){
+			for (int j=0; j<4; j++)
+				cout << hex << setfill('0') << setw(2) << int(clave_exp_ [iter_][j][i]);
+		}
+		cout << endl << "Texto cifrado:  ";
+		for (int i=0; i<4; i++){
+			for (int j=0; j<4; j++)
+				cout << hex << setfill('0') << setw(2) << int(texto_cf_[j][i]);
+		}
 	}
 
 	iter_++;
 	subBytes();
 	shiftRow();
 	addRoundKey();
+
+	cout << endl << endl << "=================" << " Iteracción 10 " << "=================" << endl;
+	cout << "Subclave 10:     ";
+	for (int i=0; i<4; i++){
+		for (int j=0; j<4; j++)
+			cout << hex << setfill('0') << setw(2) << int(clave_exp_ [iter_][j][i]);
+	}
+	cout << endl << "Texto cifrado:   ";
+	for (int i=0; i<4; i++){
+		for (int j=0; j<4; j++)
+			cout << hex << setfill('0') << setw(2) << int(texto_cf_[j][i]);
+	}
+
 	cout << endl;
 }
 
