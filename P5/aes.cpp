@@ -8,10 +8,11 @@ aes::aes (void)
 aes::aes(std::vector<vector<unsigned char>> cl, std::vector<vector<unsigned char>> tx):
 clave_(cl),
 texto_(tx),
+texto_cf_(tx),
 clave_exp_ (std::vector<vector<vector<unsigned char>>>(11, vector<vector<unsigned char>>(4, vector<unsigned char>(4)))),
 iter_(0)
 {
-	expan_clave();
+	encriptar();
 }
 
 aes::~aes (void){
@@ -58,12 +59,60 @@ void aes::expan_clave(void){
 				clave_exp_[i][k][j] = clave_exp_[i][k][j-1] ^ col_ant[k];
 			}
 		}
-
-		cout << " " << hex << int(clave_exp_[i][0][0]) << " " << int(clave_exp_[i][1][0]) << " " << int(clave_exp_[i][2][0]) << " " << int(clave_exp_[i][3][0]) << endl;
-		cout << " " << hex << int(clave_exp_[i][0][1]) << " " << int(clave_exp_[i][1][1]) << " " << int(clave_exp_[i][2][1]) << " " << int(clave_exp_[i][3][1]) << endl;
-		cout << " " << hex << int(clave_exp_[i][0][2]) << " " << int(clave_exp_[i][1][2]) << " " << int(clave_exp_[i][2][2]) << " " << int(clave_exp_[i][3][2]) << endl;
-		cout << " " << hex << int(clave_exp_[i][0][3]) << " " << int(clave_exp_[i][1][3]) << " " << int(clave_exp_[i][2][3]) << " " << int(clave_exp_[i][3][3]) << endl;
-		cout << endl;
-
 	}
+}
+
+void aes::encriptar(void){
+	expan_clave();
+	addRoundKey();
+
+	for (int i=1;i<10;i++){
+		iter_++;
+		subBytes();
+		shiftRow();
+		mixColumn();
+	}
+}
+
+void aes::addRoundKey(void){
+	for (int i=0; i<4; i++){
+		for (int j=0; j<4; j++){
+			texto_cf_[j][i] = texto_cf_[j][i] ^ clave_exp_[iter_][j][i];
+		}
+	}
+}
+
+void aes::subBytes(void){
+	for (int i=0; i<4; i++){
+		for (int j=0; j<4; j++){
+			texto_cf_[j][i] = cajaS_[texto_cf_[j][i]];
+		}
+	}
+}
+
+void aes::shiftRow(void){
+	unsigned char copia;
+
+	copia = texto_cf_[1][0];
+	texto_cf_[1][0] = texto_cf_[1][1];
+	texto_cf_[1][1] = texto_cf_[1][2];
+	texto_cf_[1][2] = texto_cf_[1][3];
+	texto_cf_[1][3] = copia;
+
+	copia = texto_cf_[2][0];
+	texto_cf_[2][0] = texto_cf_[2][2];
+	texto_cf_[2][2] = copia;
+	copia = texto_cf_[2][1];
+	texto_cf_[2][1] = texto_cf_[2][3];
+	texto_cf_[2][3] = copia;
+
+	copia = texto_cf_[3][0];
+	texto_cf_[3][0] = texto_cf_[3][3];
+	texto_cf_[3][3] = texto_cf_[3][2];
+	texto_cf_[3][2] = texto_cf_[3][1];
+	texto_cf_[3][1] = copia;
+}
+
+void aes::mixColumn(void){
+	
 }

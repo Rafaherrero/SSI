@@ -8,6 +8,7 @@ class aes{
 private:
 	std::vector<vector<unsigned char>> clave_;
 	std::vector<vector<unsigned char>> texto_;
+	std::vector<vector<unsigned char>> texto_cf_;
 	std::vector<vector<vector<unsigned char>>> clave_exp_;
 	unsigned int iter_;
 
@@ -54,4 +55,9 @@ public:
 	aes(std::vector<vector<unsigned char>> cl, std::vector<vector<unsigned char>> tx);
 	~aes(void);
 	void expan_clave(void);
+	void encriptar(void);
+	void subBytes(void);
+	void shiftRow(void);
+	void mixColumn(void);
+	void addRoundKey(void);
 };
