@@ -41,5 +41,6 @@ int main (void){
 	texto[2][3] = 0xEE;
 	texto[3][3] = 0xFF;
 
+	aes rij(clave,texto);
 
 }
