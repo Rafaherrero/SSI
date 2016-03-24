@@ -78,6 +78,7 @@ void aes::expan_clave(void){
 	}
 }
 
+//Metodo que aplica una XOR al texto cifrado con la clave expandida
 void aes::addRoundKey(void){
 	for (int i=0; i<4; i++){
 		for (int j=0; j<4; j++){
@@ -86,6 +87,7 @@ void aes::addRoundKey(void){
 	}
 }
 
+//Metodo que sustituye un byte del texto cifrado por su correspondiente en la Caja S
 void aes::subBytes(void){
 	for (int i=0; i<4; i++){
 		for (int j=0; j<4; j++){
@@ -94,6 +96,7 @@ void aes::subBytes(void){
 	}
 }
 
+//Metodo que mueve bytes a la izquierda las matrices del texto cifrado
 void aes::shiftRow(void){
 	unsigned char copia;
 
@@ -117,19 +120,33 @@ void aes::shiftRow(void){
 	texto_cf_[3][1] = copia;
 }
 
+//Metodo que aplica una transformacion lineal al texto cifrado
 void aes::mixColumn(void){
+
+	//Variables auxiliares
 	unsigned char a[4];
 	unsigned char b[4];
 	unsigned char h;
 
+	//Doble bucle para recorrer una matriz completa de una sola llamada al metodo
 	for (int i=0; i<4; i++){
 		for (int j=0; j<4; j++){
+			
+			//Copiamos en a el texto cifrado
 			a[j] = texto_cf_[j][i];
-			h = texto_cf_[j][i] & 0x80;
+
+			//Multiplicacion entre el byte del texto cifrado y 128 para comprobar si el byte del texto es mayor que 128
+			h = texto_cf_[j][i] & 0x80; 
+
+			//Multiplicamos por 2 (desplazamos un byte) el byte del texto cifrado y lo dejamos en la variable auxiliar b
 			b[j] = texto_cf_[j][i] << 1;
+
+			//En caso de que el byte sea mayor de 127 aplicamos una XOR con 27
 			if(h == 0x80)
-				b[j] ^= 0x1b;
+				b[j] = b[j] ^0x1b;
 		}
+
+		//Realizamos todas las XOR correspondientes para cada uno de los elementos de nuestra columna, ya que cada fila tiene un valor distinto
 		texto_cf_[0][i] = b[0] ^ a[3] ^ a[2] ^ b[1] ^ a[1];
 		texto_cf_[1][i] = b[1] ^ a[0] ^ a[3] ^ b[2] ^ a[2];
 		texto_cf_[2][i] = b[2] ^ a[1] ^ a[0] ^ b[3] ^ a[3];
@@ -139,9 +156,12 @@ void aes::mixColumn(void){
 
 //Metodo que se encarga de llamar a los metodos para realizar el encriptado completo
 void aes::encriptar(void){
+
+	//En la iteracion 0 solo expandimos la clave y aplicamos una XOR al texto cifrado con la clave expandida
 	expan_clave();
 	addRoundKey();
 
+	//Informacion para imprimir por pantalla
 	cout << endl << endl << "=================" << " Iteracción 0 " << "=================" << endl;
 	cout << "Subclave 0:     ";
 	for (int i=0; i<4; i++){
@@ -154,6 +174,7 @@ void aes::encriptar(void){
 			cout << hex << setfill('0') << setw(2) << int(texto_cf_[j][i]);
 	}
 
+	//Llamamos a cada metodo por separado 9 veces. Se aumenta el contador de iteraciones, necesario para moverse por la clave expandida
 	for (int i=1;i<10;i++){
 		iter_++;
 		subBytes();
@@ -161,6 +182,7 @@ void aes::encriptar(void){
 		mixColumn();
 		addRoundKey();
 
+		//Informacion para imprimir por pantalla
 		cout << endl << endl << "=================" << " Iteracción " << iter_ << " =================" << endl;
 		cout << "Subclave " << iter_ << ":     ";
 		for (int i=0; i<4; i++){
@@ -174,11 +196,13 @@ void aes::encriptar(void){
 		}
 	}
 
+	//En la ultima iteracion aplicamos los mismos metodos que antes, salvo que ahora no realizamos 
 	iter_++;
 	subBytes();
 	shiftRow();
 	addRoundKey();
 
+	//Informacion para imprimir por pantalla
 	cout << endl << endl << "=================" << " Iteracción 10 " << "=================" << endl;
 	cout << "Subclave 10:     ";
 	for (int i=0; i<4; i++){
@@ -190,6 +214,5 @@ void aes::encriptar(void){
 		for (int j=0; j<4; j++)
 			cout << hex << setfill('0') << setw(2) << int(texto_cf_[j][i]);
 	}
-
 	cout << endl;
 }
