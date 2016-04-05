@@ -298,7 +298,6 @@ int main (void){
 			textos[i+1][2][3] = textos[i][2][3];
 			textos[i+1][3][3] = textos[i][3][3];
 		}
-
 		cout << endl;
 	}
 	swap(textos[1],textos[0]);
@@ -307,11 +306,9 @@ int main (void){
 	for (int i=0; i<2; i++){
 		cout << endl << "Texto " << i+1	 << " listo para cifrar: ";
 	for (int j=0; j<4; j++){
-			for (int k=0; k<4; k++)
-				cout << hex << setfill('0') << setw(2) << int(textos[i][k][j]);
+		for (int k=0; k<4; k++)
+			cout << hex << setfill('0') << setw(2) << int(textos[i][k][j]);
 		}
 	}
-
-
 	cout << endl;
 }
