@@ -1,3 +1,5 @@
+//Compilar usando g++ -std=c++11 main.cpp vigenere.cpp
+
 #include "vigenere.hpp"
 #include <cctype>
 

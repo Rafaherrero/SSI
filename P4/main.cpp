@@ -1,3 +1,5 @@
+//Compilar usando g++ -std=c++11 main.cpp a5.cpp
+
 #include "a5.hpp"
 
 using namespace std;

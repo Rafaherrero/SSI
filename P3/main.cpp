@@ -1,3 +1,5 @@
+//Compilar usando g++ -std=c++11 main.cpp rc4.cpp
+
 #include "rc4.hpp"
 
 using namespace std;

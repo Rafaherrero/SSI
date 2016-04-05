@@ -1,3 +1,5 @@
+//Compilar usando g++ -std=c++11 main.cpp vernam.cpp
+
 #include "vernam.hpp"
 
 using namespace std;

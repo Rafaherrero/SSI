@@ -1,3 +1,5 @@
+//Compilar usando g++ -std=c++11 main.cpp aes.cpp
+
 #include "aes.hpp"
 
 using namespace std;
