@@ -267,7 +267,7 @@ int main (void){
 
 	//AQUI SE ENCUENTRA LA MODIFICACION DE LA PRACTICA DEL CIPHER STEALING
 
-	cout << endl << "=================" << " MODIFICACION PRACTICA 6 CP " << "=================" << endl;
+	cout << endl << "=================" << " MODIFICACION PRACTICA 6 CS " << "=================" << endl;
 
 	for (int i=0; i<2; i++){
 		aes rij_5(clave_4, textos[i], 1);
