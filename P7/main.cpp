@@ -4,9 +4,9 @@
 using namespace std;
 
 int main (void){
-	unsigned primo = 7;
-	unsigned alpha = 3;
-	unsigned secreto_a = 12;
-	unsigned secreto_b = 19;
+	unsigned primo = 43;
+	unsigned alpha = 23;
+	unsigned secreto_a = 25;
+	unsigned secreto_b = 33;
 	diffie(primo, alpha, secreto_a, secreto_b);
 }
