@@ -6,11 +6,13 @@ using namespace std;
 
 class diffie{
 private:
-	unsigned primo_, alpha_, secreto_a_, secreto_b_, y_a_, y_b_, clave_a_, clave_b_;
+	unsigned primo_, alpha_, secreto_, y_;
 public:
 	diffie(void);
-	diffie(unsigned pr_, unsigned al_, unsigned sec_a_, unsigned sec_b_);
+	diffie(unsigned pr_, unsigned al_, unsigned sec_);
 	~diffie(void);
 	bool es_primo(unsigned pr_);
 	unsigned calculo(unsigned base, unsigned exp_);
+	unsigned get_y(void);
+	unsigned get_secreto(void);
 };

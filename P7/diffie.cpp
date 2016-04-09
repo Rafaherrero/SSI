@@ -3,27 +3,19 @@
 diffie::diffie(void):
 primo_(1),
 alpha_(0),
-secreto_a_(0),
-secreto_b_(0),
-y_a_(0),
-y_b_(0)
+secreto_(0),
+y_(0)
 {}
 
-diffie::diffie(unsigned pr_, unsigned al_, unsigned sec_a_, unsigned sec_b_):
-secreto_a_(sec_a_),
-secreto_b_(sec_b_),
-y_a_(0),
-y_b_(0)
+diffie::diffie(unsigned pr_, unsigned al_, unsigned sec_):
+secreto_(sec_),
+y_(0)
 {
 	if (al_<pr_){
 		alpha_ = al_;
 		if (es_primo(pr_)){
 			primo_ = pr_;
-			y_a_ = calculo(alpha_, sec_a_);
-			y_b_ = calculo(alpha_, sec_b_);
-			clave_a_ = calculo(y_b_, sec_a_);
-			clave_b_ = calculo(y_a_, sec_b_);
-			cout << "Deberian ser iguales " << clave_a_ << " y " << clave_b_ << endl;
+			y_ = calculo(alpha_, sec_);
 		}
 		else
 			cout << "P no es un número primo" << endl;
@@ -68,3 +60,12 @@ unsigned diffie::calculo(unsigned base, unsigned exp_){
 	}
 	return x;
 }
+
+unsigned diffie::get_y(void){
+	return y_;
+}
+
+unsigned diffie::get_secreto(void){
+	return secreto_;
+}
+
