@@ -69,3 +69,23 @@ unsigned diffie::get_secreto(void){
 	return secreto_;
 }
 
+void diffie::set(unsigned pr_, unsigned al_, unsigned sec_){
+	secreto_=sec_;
+	y_=0;
+
+	if (al_<pr_){
+		alpha_ = al_;
+		if (es_primo(pr_)){
+			primo_ = pr_;
+			y_ = calculo(alpha_, sec_);
+		}
+		else
+			cout << "P no es un número primo" << endl;
+	}
+	else
+		cout << "Alpha no es menor que p" << endl;
+}
+
+void diffie::set_y(unsigned y){
+	y_ = calculo(y, secreto_);
+}
