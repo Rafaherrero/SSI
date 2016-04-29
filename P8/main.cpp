@@ -4,5 +4,7 @@
 using namespace std;
 
 int main (void){
-	rsa A(19,12);
+	rsa A;
+
+	cout << A.euclides(139901,128189) << endl;
 }
