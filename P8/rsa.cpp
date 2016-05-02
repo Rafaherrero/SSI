@@ -171,11 +171,7 @@ boost::multiprecision::mpz_int rsa::get_n (void){
 vector<boost::multiprecision::mpz_int> rsa::descifrado (vector<boost::multiprecision::mpz_int> tx_cifrado, boost::multiprecision::mpz_int n_del_otro){
 	vector<boost::multiprecision::mpz_int> tx_descifrado(tx_cifrado.size());
 
-	boost::multiprecision::mpz_int j=0;
 	int w=0,y=0;
-
-	while (pow_multiprecision(alfabeto, j)<n_del_otro)
-		j++;
 
 	for (int i=0; i<tx_descifrado.size(); i++)
 		tx_descifrado[i] = expo(tx_cifrado[i], d_, n_del_otro);
