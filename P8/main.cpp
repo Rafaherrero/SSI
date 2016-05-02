@@ -17,23 +17,28 @@ int main (void){
 	cin >> q_a;
 	cout << "Introduzca la d de Anastacia: ";
 	cin >> d_a;
-	//cout << endl << "Introduzca la p de Bonifacio: ";
-	//cin >> p_b;
-	//cout << "Introduzca la q de Bonifacio: ";
-	//cin >> q_b;
-	//cout << "Introduzca la d de Bonifacio: ";
-	//cin >> d_b;
+	cout << endl << "Bonifacio utilizará los mismo valores que Anastacia" << endl << endl;
 
-	text_cf.erase( std::remove_if( text_cf.begin(), text_cf.end(), ::isspace ), text_cf.end() );
+	text_cf.erase( std::remove_if(text_cf.begin(), text_cf.end(), ::isspace ), text_cf.end());
 	rsa A(p_a, q_a, d_a);
-	//rsa B(p_b, q_b, d_b);
+	rsa B(p_a, q_a, d_a);
 	
-	cout << "Inverso segun el algoritmo de Euclides extendido entre 811716 y 5 es: " << A.euclides(811716,5) << endl;
+	vector<boost::multiprecision::mpz_int> texto_cifrado = A.cifrar(text_cf, B.get_e(), B.get_n());
 
-	A.cifrar(text_cf);
+	cout << "El texto cifrado es: ";
+	for (int i=0; i<texto_cifrado.size(); i++)
+		cout << texto_cifrado[i] << "  ";
 
-	if (A.lehman(4267149919458365153))
-		cout << "El numero 4267149919458365153 es primo" << endl;
-	else
-		cout << "El numero 4267149919458365153 no es primo" << endl;
+	cout << endl << "El texto descifrado es: ";
+
+	vector<boost::multiprecision::mpz_int> texto_descifrado = B.descifrado(texto_cifrado, A.get_n());
+
+	for (int i=0; i<texto_descifrado.size(); i++)
+		cout << texto_descifrado[i] << "  ";
+
+	cout << endl << "El texto descifrado formateado es: ";
+
+	string resultado = B.paso_string(texto_descifrado, A.get_n());
+
+	cout << resultado << endl;
 }

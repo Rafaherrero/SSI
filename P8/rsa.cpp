@@ -1,4 +1,6 @@
 #include "rsa.hpp"
+#define alfabeto boost::multiprecision::mpz_int(26)
+#define ascii unsigned (65)
 
 rsa::rsa (void){
 }
@@ -45,7 +47,7 @@ boost::multiprecision::mpz_int rsa::euclides(boost::multiprecision::mpz_int a, b
 	}
 
 	if(x0!=1)
-		cout << "Los números pasados no son primos" << endl;
+		cout << "Los números pasados no son coprimos" << endl;
 	else{
 		if(z_1<0){
 			return ((z_1%a+a)%a);
@@ -98,12 +100,12 @@ boost::multiprecision::mpz_int rsa::expo(boost::multiprecision::mpz_int base, bo
 	return x;
 }
 
-void rsa::cifrar (string tx_cf){
-	boost::multiprecision::mpz_int j=0, alfabeto = 26;
+vector<boost::multiprecision::mpz_int> rsa::cifrar (string tx_cf, boost::multiprecision::mpz_int e_del_otro, boost::multiprecision::mpz_int n_del_otro){
+	boost::multiprecision::mpz_int j=0;
 
 	boost::to_upper(tx_cf);
 
-	while (pow_multiprecision(alfabeto, j)<n_)
+	while (pow_multiprecision(alfabeto, j)<n_del_otro)
 		j++;
 
 	boost::multiprecision::mpz_int lg_text = tx_cf.length();
@@ -123,9 +125,30 @@ void rsa::cifrar (string tx_cf){
 					tx_div[i].append("A");
 			}
 		}
-		cout << "  " << tx_div[i] << endl;
 	}
 
+	vector<boost::multiprecision::mpz_int> tx_num(tx_div.size());
+
+	boost::multiprecision::mpz_int num=0;
+	boost::multiprecision::mpz_int caracter=0;
+
+	for (int i=0; i<tx_num.size(); i++){
+		int k = tx_div[i].length()-1;
+		num=0;
+		for (int j=0; j<tx_div[i].length(); j++){
+			caracter = int(tx_div[i][j])-ascii;
+			num = num + caracter*pow_multiprecision(alfabeto,k);	
+			k--;
+		}
+		tx_num[i] = num;
+	}
+
+	vector<boost::multiprecision::mpz_int> tx_num_cf(tx_num.size());
+
+	for (int i=0; i<tx_num_cf.size(); i++)
+		tx_num_cf[i] = expo(tx_num[i], e_del_otro, n_del_otro);
+
+	return tx_num_cf;
 }
 
 boost::multiprecision::mpz_int rsa::pow_multiprecision (boost::multiprecision::mpz_int base, boost::multiprecision::mpz_int exp_){
@@ -135,5 +158,66 @@ boost::multiprecision::mpz_int rsa::pow_multiprecision (boost::multiprecision::m
 		resultado = resultado * base;
 	
 	return resultado;
+}
 
+boost::multiprecision::mpz_int rsa::get_e (void){
+	return e_;
+}
+
+boost::multiprecision::mpz_int rsa::get_n (void){
+	return n_;
+}
+
+vector<boost::multiprecision::mpz_int> rsa::descifrado (vector<boost::multiprecision::mpz_int> tx_cifrado, boost::multiprecision::mpz_int n_del_otro){
+	vector<boost::multiprecision::mpz_int> tx_descifrado(tx_cifrado.size());
+
+	boost::multiprecision::mpz_int j=0;
+	int w=0,y=0;
+
+	while (pow_multiprecision(alfabeto, j)<n_del_otro)
+		j++;
+
+	for (int i=0; i<tx_descifrado.size(); i++)
+		tx_descifrado[i] = expo(tx_cifrado[i], d_, n_del_otro);
+
+	return tx_descifrado;
+}
+
+string rsa::paso_string (vector<boost::multiprecision::mpz_int> tx_descifrado, boost::multiprecision::mpz_int n_del_otro){
+	boost::multiprecision::mpz_int j=0;
+	int w=0,y=0;
+	string salida;
+
+	while (pow_multiprecision(alfabeto, j)<n_del_otro)
+		j++;
+
+	vector<boost::multiprecision::mpz_int> num_des(tx_descifrado.size()*(int(j)-1));
+
+	for (int i=0; i<num_des.size(); i++)
+		num_des[i] = 0;
+
+	for (int i=0; i<tx_descifrado.size(); i++){
+		y=(int(j)-2);
+		for (int k=0; k<(int(j)-1); k++){
+
+			if (k==(int(j)-2))
+				num_des[w] = tx_descifrado[i];
+			else{
+				while (num_des[w]*pow_multiprecision(alfabeto,y)<=tx_descifrado[i]){
+					num_des[w] = num_des[w]+1;
+				}
+				if(num_des[w]!=0)
+					num_des[w] = num_des[w]-1;
+			}
+			if (k!=(int(j)-1))
+				tx_descifrado[i] = tx_descifrado[i] - num_des[w]*pow_multiprecision(alfabeto,y);
+			w++;
+			y--;
+		}
+	}
+
+	for (int i=0; i<num_des.size(); i++)
+		salida += (char(int(num_des[i])+ascii));
+
+	return salida;
 }

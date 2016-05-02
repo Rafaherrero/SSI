@@ -21,6 +21,9 @@ public:
 	boost::multiprecision::mpz_int aleatorio(boost::multiprecision::mpz_int rg_1, boost::multiprecision::mpz_int rg_2);
 	boost::multiprecision::mpz_int expo(boost::multiprecision::mpz_int base, boost::multiprecision::mpz_int exp_, boost::multiprecision::mpz_int primo_);
 	boost::multiprecision::mpz_int pow_multiprecision (boost::multiprecision::mpz_int base, boost::multiprecision::mpz_int exp_);
-	void cifrar (string tx_cf);
-
+	vector<boost::multiprecision::mpz_int> cifrar (string tx_cf, boost::multiprecision::mpz_int e_del_otro, boost::multiprecision::mpz_int n_del_otro);
+	vector<boost::multiprecision::mpz_int> descifrado (vector<boost::multiprecision::mpz_int> tx_cifrado, boost::multiprecision::mpz_int n_del_otro);
+	string paso_string (vector<boost::multiprecision::mpz_int> tx_descifrado, boost::multiprecision::mpz_int n_del_otro);
+	boost::multiprecision::mpz_int get_e (void);
+	boost::multiprecision::mpz_int get_n (void);
 };
