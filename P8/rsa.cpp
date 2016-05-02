@@ -117,7 +117,13 @@ void rsa::cifrar (string tx_cf){
 
 	for (int i=0; i<tx_div.size(); i++){
 		tx_div[i] = tx_cf.substr(i*(int(j)-1),int(j)-1);
-		cout << "  " << tx_cf.substr(i*(int(j)-1),int(j)-1) << endl;
+		if (i==tx_div.size()-1){
+			if (tx_div[i].length()!=(int(j)-1)){
+				while (tx_div[i].length()<(int(j)-1))
+					tx_div[i].append("A");
+			}
+		}
+		cout << "  " << tx_div[i] << endl;
 	}
 
 }
