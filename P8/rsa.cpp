@@ -202,7 +202,7 @@ string rsa::paso_string (vector<boost::multiprecision::mpz_int> tx_descifrado, b
 				while (num_des[w]*pow_multiprecision(alfabeto,y)<=tx_descifrado[i]){
 					num_des[w] = num_des[w]+1;
 				}
-				if(num_des[w]!=0)
+				//if(num_des[w]!=0)
 					num_des[w] = num_des[w]-1;
 			}
 			if (k!=(int(j)-1))
