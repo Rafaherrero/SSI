@@ -3,35 +3,53 @@
 rsa::rsa (void){
 }
 
+rsa::rsa(boost::multiprecision::mpz_int p, boost::multiprecision::mpz_int q, boost::multiprecision::mpz_int d){
+	
+	if (lehman(p))
+		p_ = p;
+	else
+		cout << "El numero p: " << p << ", no es primo." << endl;
+
+	if (lehman(q))
+		q_ = q;
+	else
+		cout << "El numero q: " << q << ", no es primo." << endl;
+}
+
 rsa::~rsa (void){
 
 }
 
 boost::multiprecision::mpz_int rsa::euclides(boost::multiprecision::mpz_int a, boost::multiprecision::mpz_int b){
-	long int z_1 = 0, z0 = 1, aux_z=z0;
+	boost::multiprecision::mpz_int z_1 = 0, z0 = 1, aux_z=z0;
 	boost::multiprecision::mpz_int x0=a, x1=b, aux=b;
 
 	while(x1>0){
 
-		// z0=(-(x0/x1))*z0+z_1;
-		// z_1=aux_z;
-		// aux_z=z0;
+		z0=(-x0/x1)*z0+z_1;
+		z_1=aux_z;
+		aux_z=z0;
 
-		// x1=(x0%x1);
-		// x0=aux;
-		// aux=x1;
+		x1=(x0%x1);
+		x0=aux;
+		aux=x1;
 	}
 
 	if(x0!=1)
 		cout << "Los números pasados no son primos" << endl;
-	else
-		return z_1;
+	else{
+		if(z_1<0){
+			return ((z_1%a+a)%a);
+		}
+		else
+			return z_1;
+	}
 }
 
 bool rsa::lehman(boost::multiprecision::mpz_int p){
 	vector<boost::multiprecision::mpz_int> ai(100);
 	bool es_primo=true;
-	cout << "El numero es " << p << endl;
+
 	for (int i=0; i<ai.size(); i++)
 		ai[i] = aleatorio(1,p-1);
 	for (int i=0; i<ai.size()&&es_primo;i++){
