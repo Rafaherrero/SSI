@@ -14,6 +14,15 @@ rsa::rsa(boost::multiprecision::mpz_int p, boost::multiprecision::mpz_int q, boo
 		q_ = q;
 	else
 		cout << "El numero q: " << q << ", no es primo." << endl;
+
+	if (lehman(d))
+		d_ = d;
+	else
+		cout << "El numero d: " << d << ", no es primo." << endl;
+
+	phi_n_ = (p_-1)*(q_-1);
+	n_ = p_*q_;
+	e_ = euclides(phi_n_,d_);
 }
 
 rsa::~rsa (void){
@@ -87,4 +96,38 @@ boost::multiprecision::mpz_int rsa::expo(boost::multiprecision::mpz_int base, bo
 		}
 	}
 	return x;
+}
+
+void rsa::cifrar (string tx_cf){
+	boost::multiprecision::mpz_int j=0, alfabeto = 26;
+
+	boost::to_upper(tx_cf);
+
+	while (pow_multiprecision(alfabeto, j)<n_)
+		j++;
+
+	boost::multiprecision::mpz_int lg_text = tx_cf.length();
+	boost::multiprecision::mpz_int size_vector = (lg_text)/(j-1);
+
+	if ((lg_text)%(j-1)!=0)
+		size_vector++;
+
+	int tm_vc = int(size_vector);
+	vector<string> tx_div(tm_vc);
+
+	for (int i=0; i<tx_div.size(); i++){
+		tx_div[i] = tx_cf.substr(i*(int(j)-1),int(j)-1);
+		cout << "  " << tx_cf.substr(i*(int(j)-1),int(j)-1) << endl;
+	}
+
+}
+
+boost::multiprecision::mpz_int rsa::pow_multiprecision (boost::multiprecision::mpz_int base, boost::multiprecision::mpz_int exp_){
+	boost::multiprecision::mpz_int resultado=1;
+
+	for (boost::multiprecision::mpz_int i=0; i<exp_;i++)
+		resultado = resultado * base;
+	
+	return resultado;
+
 }

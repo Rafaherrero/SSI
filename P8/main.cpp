@@ -10,24 +10,27 @@ int main (void){
 
 	cout << "==================== " << "RSA" << " ====================" << endl << endl;
 	cout << "Introduzca el texto a cifrar: ";
-	cin >> text_cf;
+	getline(cin, text_cf);
 	cout << endl << "Introduzca la p de Anastacia: ";
 	cin >> p_a;
 	cout << "Introduzca la q de Anastacia: ";
 	cin >> q_a;
 	cout << "Introduzca la d de Anastacia: ";
 	cin >> d_a;
-	cout << endl << "Introduzca la p de Bonifacio: ";
-	cin >> p_b;
-	cout << "Introduzca la q de Bonifacio: ";
-	cin >> q_b;
-	cout << "Introduzca la d de Bonifacio: ";
-	cin >> d_b;
+	//cout << endl << "Introduzca la p de Bonifacio: ";
+	//cin >> p_b;
+	//cout << "Introduzca la q de Bonifacio: ";
+	//cin >> q_b;
+	//cout << "Introduzca la d de Bonifacio: ";
+	//cin >> d_b;
 
+	text_cf.erase( std::remove_if( text_cf.begin(), text_cf.end(), ::isspace ), text_cf.end() );
 	rsa A(p_a, q_a, d_a);
-	rsa B(p_b, q_b, d_b);
+	//rsa B(p_b, q_b, d_b);
 	
 	cout << "Inverso segun el algoritmo de Euclides extendido entre 811716 y 5 es: " << A.euclides(811716,5) << endl;
+
+	A.cifrar(text_cf);
 
 	if (A.lehman(4267149919458365153))
 		cout << "El numero 4267149919458365153 es primo" << endl;
