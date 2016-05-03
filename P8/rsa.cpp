@@ -17,21 +17,22 @@ rsa::rsa(boost::multiprecision::mpz_int p, boost::multiprecision::mpz_int q, boo
 	else
 		cout << "El numero q: " << q << ", no es primo." << endl;
 
-	if (lehman(d))
+	phi_n_ = (p_-1)*(q_-1);
+
+	if (euclides(phi_n_,d,false)==1)
 		d_ = d;
 	else
-		cout << "El numero d: " << d << ", no es primo." << endl;
+		cout << "El numero d: " << d << ", no es coprimo con " << phi_n_ << endl;
 
-	phi_n_ = (p_-1)*(q_-1);
 	n_ = p_*q_;
-	e_ = euclides(phi_n_,d_);
+	e_ = euclides(phi_n_,d_,true);
 }
 
 rsa::~rsa (void){
 
 }
 
-boost::multiprecision::mpz_int rsa::euclides(boost::multiprecision::mpz_int a, boost::multiprecision::mpz_int b){
+boost::multiprecision::mpz_int rsa::euclides(boost::multiprecision::mpz_int a, boost::multiprecision::mpz_int b, bool modo){
 	boost::multiprecision::mpz_int z_1 = 0, z0 = 1, aux_z=z0;
 	boost::multiprecision::mpz_int x0=a, x1=b, aux=b;
 
@@ -49,11 +50,15 @@ boost::multiprecision::mpz_int rsa::euclides(boost::multiprecision::mpz_int a, b
 	if(x0!=1)
 		cout << "Los números pasados no son coprimos" << endl;
 	else{
-		if(z_1<0){
-			return ((z_1%a+a)%a);
+		if (modo){
+			if(z_1<0){
+				return ((z_1%a+a)%a);
+			}
+			else
+				return z_1;
 		}
 		else
-			return z_1;
+			return x0;
 	}
 }
 
