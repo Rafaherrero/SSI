@@ -37,13 +37,13 @@ boost::multiprecision::mpz_int rsa::euclides(boost::multiprecision::mpz_int a, b
 
 	while(x1>0){
 
-		z0=(-x0/x1)*z0+z_1;
-		z_1=aux_z;
-		aux_z=z0;
+		z0 = (-x0/x1) * z0 + z_1;
+		z_1 = aux_z;
+		aux_z = z0;
 
-		x1=(x0%x1);
-		x0=aux;
-		aux=x1;
+		x1 = (x0 % x1);
+		x0 = aux;
+		aux = x1;
 	}
 
 	if(x0!=1)
