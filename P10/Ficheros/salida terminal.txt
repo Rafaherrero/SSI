@@ -1,0 +1,867 @@
+rafa@rafa:~$ sudo su
+[sudo] password for rafa: 
+root@rafa:/home/rafa# apt install openssl
+Leyendo lista de paquetes... Hecho
+Creando árbol de dependencias       
+Leyendo la información de estado... Hecho
+openssl ya está en su versión más reciente (1.0.2g-1ubuntu4.1).
+fijado openssl como instalado manualmente.
+Los paquetes indicados a continuación se instalaron de forma automática y ya no son necesarios.
+  linux-headers-4.4.0-21 linux-headers-4.4.0-21-generic
+  linux-image-4.4.0-21-generic linux-image-extra-4.4.0-21-generic
+Utilice «sudo apt autoremove» para eliminarlos.
+0 actualizados, 0 nuevos se instalarán, 0 para eliminar y 0 no actualizados.
+root@rafa:/home/rafa# apt autoremove
+Leyendo lista de paquetes... Hecho
+Creando árbol de dependencias       
+Leyendo la información de estado... Hecho
+Los siguientes paquetes se ELIMINARÁN:
+  linux-headers-4.4.0-21 linux-headers-4.4.0-21-generic
+  linux-image-4.4.0-21-generic linux-image-extra-4.4.0-21-generic
+0 actualizados, 0 nuevos se instalarán, 4 para eliminar y 0 no actualizados.
+Se liberarán 295 MB después de esta operación.
+¿Desea continuar? [S/n] s
+(Leyendo la base de datos ... 363331 ficheros o directorios instalados actualmente.)
+Desinstalando linux-headers-4.4.0-21-generic (4.4.0-21.37) ...
+Desinstalando linux-headers-4.4.0-21 (4.4.0-21.37) ...
+Desinstalando linux-image-extra-4.4.0-21-generic (4.4.0-21.37) ...
+run-parts: executing /etc/kernel/postinst.d/apt-auto-removal 4.4.0-21-generic /boot/vmlinuz-4.4.0-21-generic
+run-parts: executing /etc/kernel/postinst.d/initramfs-tools 4.4.0-21-generic /boot/vmlinuz-4.4.0-21-generic
+update-initramfs: Generating /boot/initrd.img-4.4.0-21-generic
+run-parts: executing /etc/kernel/postinst.d/pm-utils 4.4.0-21-generic /boot/vmlinuz-4.4.0-21-generic
+run-parts: executing /etc/kernel/postinst.d/unattended-upgrades 4.4.0-21-generic /boot/vmlinuz-4.4.0-21-generic
+run-parts: executing /etc/kernel/postinst.d/update-notifier 4.4.0-21-generic /boot/vmlinuz-4.4.0-21-generic
+run-parts: executing /etc/kernel/postinst.d/zz-update-grub 4.4.0-21-generic /boot/vmlinuz-4.4.0-21-generic
+Generando archivo de configuración grub...
+Aviso: Ya no se permite establecer GRUB_TIMEOUT a un valor distinto de cero cuando GRUB_HIDDEN_TIMEOUT está activado.
+Se encontró una imagen linux: /boot/vmlinuz-4.5.0-040500-generic
+Se encontró una imagen initrd: /boot/initrd.img-4.5.0-040500-generic
+Se encontró una imagen linux: /boot/vmlinuz-4.4.0-22-generic
+Se encontró una imagen initrd: /boot/initrd.img-4.4.0-22-generic
+Se encontró una imagen linux: /boot/vmlinuz-4.4.0-21-generic
+Se encontró una imagen initrd: /boot/initrd.img-4.4.0-21-generic
+Se encontró una imagen linux: /boot/vmlinuz-4.3.0-7-generic
+Se encontró una imagen initrd: /boot/initrd.img-4.3.0-7-generic
+Found memtest86+ image: /memtest86+.elf
+Found memtest86+ image: /memtest86+.bin
+hecho
+Desinstalando linux-image-4.4.0-21-generic (4.4.0-21.37) ...
+Examining /etc/kernel/postrm.d .
+run-parts: executing /etc/kernel/postrm.d/initramfs-tools 4.4.0-21-generic /boot/vmlinuz-4.4.0-21-generic
+update-initramfs: Deleting /boot/initrd.img-4.4.0-21-generic
+run-parts: executing /etc/kernel/postrm.d/zz-update-grub 4.4.0-21-generic /boot/vmlinuz-4.4.0-21-generic
+Generando archivo de configuración grub...
+Aviso: Ya no se permite establecer GRUB_TIMEOUT a un valor distinto de cero cuando GRUB_HIDDEN_TIMEOUT está activado.
+Se encontró una imagen linux: /boot/vmlinuz-4.5.0-040500-generic
+Se encontró una imagen initrd: /boot/initrd.img-4.5.0-040500-generic
+Se encontró una imagen linux: /boot/vmlinuz-4.4.0-22-generic
+Se encontró una imagen initrd: /boot/initrd.img-4.4.0-22-generic
+Se encontró una imagen linux: /boot/vmlinuz-4.3.0-7-generic
+Se encontró una imagen initrd: /boot/initrd.img-4.3.0-7-generic
+Found memtest86+ image: /memtest86+.elf
+Found memtest86+ image: /memtest86+.bin
+hecho
+The link /vmlinuz.old is a damaged link
+Removing symbolic link vmlinuz.old 
+ you may need to re-run your boot loader[grub]
+The link /initrd.img.old is a damaged link
+Removing symbolic link initrd.img.old 
+ you may need to re-run your boot loader[grub]
+root@rafa:/home/rafa# exit
+exit
+rafa@rafa:~$ cd Documentos/Repositorios/SSI/
+rafa@rafa:~/Documentos/Repositorios/SSI$ ll
+total 52
+drwxrwxr-x 11 rafa rafa 4096 abr 29 12:31 ./
+drwxrwxr-x 11 rafa rafa 4096 may  9 09:32 ../
+drwxrwxr-x  8 rafa rafa 4096 may  3 10:21 .git/
+-rw-rw-r--  1 rafa rafa    5 abr 29 12:35 .gitignore
+drwxrwxr-x  2 rafa rafa 4096 abr  5 23:48 P1/
+drwxrwxr-x  2 rafa rafa 4096 abr  5 23:47 P2/
+drwxrwxr-x  2 rafa rafa 4096 abr  5 23:46 P3/
+drwxrwxr-x  2 rafa rafa 4096 abr  5 23:46 P4/
+drwxrwxr-x  2 rafa rafa 4096 abr  5 23:45 P5/
+drwxrwxr-x  2 rafa rafa 4096 abr  5 23:44 P6/
+drwxrwxr-x  2 rafa rafa 4096 abr 12 12:12 P7/
+drwxrwxrwx  2 rafa rafa 4096 may  3 10:20 P8/
+-rw-rw-r--  1 rafa rafa  297 abr 29 10:27 README.md
+rafa@rafa:~/Documentos/Repositorios/SSI$ git pull
+Already up-to-date.
+rafa@rafa:~/Documentos/Repositorios/SSI$ mkdir P10
+rafa@rafa:~/Documentos/Repositorios/SSI$ cd P10
+rafa@rafa:~/Documentos/Repositorios/SSI/P10$ ll
+total 8
+drwxrwxr-x  2 rafa rafa 4096 may 10 10:05 ./
+drwxrwxr-x 12 rafa rafa 4096 may 10 10:05 ../
+rafa@rafa:~/Documentos/Repositorios/SSI/P10$ openssl req -x509 -newkey rsa:2048 -days 1095 -keyout
+req [options] <infile >outfile
+where options  are
+ -inform arg    input format - DER or PEM
+ -outform arg   output format - DER or PEM
+ -in arg        input file
+ -out arg       output file
+ -text          text form of request
+ -pubkey        output public key
+ -noout         do not output REQ
+ -verify        verify signature on REQ
+ -modulus       RSA modulus
+ -nodes         don't encrypt the output key
+ -engine e      use engine e, possibly a hardware device
+ -subject       output the request's subject
+ -passin        private key password source
+ -key file      use the private key contained in file
+ -keyform arg   key file format
+ -keyout arg    file to send the key to
+ -rand file:file:...
+                load the file (or the files in the directory) into
+                the random number generator
+ -newkey rsa:bits generate a new RSA key of 'bits' in size
+ -newkey dsa:file generate a new DSA key, parameters taken from CA in 'file'
+ -newkey ec:file generate a new EC key, parameters taken from CA in 'file'
+ -[digest]      Digest to sign with (md5, sha1, md2, mdc2, md4)
+ -config file   request template file.
+ -subj arg      set or modify request subject
+ -multivalue-rdn enable support for multivalued RDNs
+ -new           new request.
+ -batch         do not ask anything during request generation
+ -x509          output a x509 structure instead of a cert. req.
+ -days          number of days a certificate generated by -x509 is valid for.
+ -set_serial    serial number to use for a certificate generated by -x509.
+ -newhdr        output "NEW" in the header lines
+ -asn1-kludge   Output the 'request' in a format that is wrong but some CA's
+                have been reported as requiring
+ -extensions .. specify certificate extension section (override value in config file)
+ -reqexts ..    specify request extension section (override value in config file)
+ -utf8          input characters are UTF8 (default ASCII)
+ -nameopt arg    - various certificate name options
+ -reqopt arg    - various request text options
+
+rafa@rafa:~/Documentos/Repositorios/SSI/P10$ openssl req -x509 -newkey rsa:2048 -days 1095 -keyout CAkey.pem -out CAcert.pem
+Generating a 2048 bit RSA private key
+..............+++
+....+++
+writing new private key to 'CAkey.pem'
+Enter PEM pass phrase:
+140399671330456:error:28069065:lib(40):UI_set_result:result too small:ui_lib.c:823:You must type in 4 to 1024 characters
+140399671330456:error:0906406D:PEM routines:PEM_def_callback:problems getting password:pem_lib.c:110:
+140399671330456:error:0907E06F:PEM routines:DO_PK8PKEY:read key:pem_pk8.c:130:
+rafa@rafa:~/Documentos/Repositorios/SSI/P10$ openssl req -x509 -newkey rsa:2048 -days 1095 -keyout CAkey.pem -out CAcert.pem
+Generating a 2048 bit RSA private key
+.............+++
+...........................................................................+++
+writing new private key to 'CAkey.pem'
+Enter PEM pass phrase:
+Verifying - Enter PEM pass phrase:
+-----
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) [AU]:ES
+State or Province Name (full name) [Some-State]:Tenerife
+Locality Name (eg, city) []:La Laguna
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:ULL
+Organizational Unit Name (eg, section) []:ETSII
+Common Name (e.g. server FQDN or YOUR name) []:ull.es
+Email Address []:rafael.herrero.13@ull.edu.es
+rafa@rafa:~/Documentos/Repositorios/SSI/P10$ openssl genrsa -des3 -out serv-priv.pem -passout pass:daniel1234 2048
+Generating RSA private key, 2048 bit long modulus
+.......................................+++
+....................+++
+e is 65537 (0x10001)
+rafa@rafa:~/Documentos/Repositorios/SSI/P10$ openssl req -new -subj "/DC=root.com/OU=com/CN=root" -key serv-priv.pem -passin pass:daniel1234 -out petic-certificado-serv.pem
+rafa@rafa:~/Documentos/Repositorios/SSI/P10$ openssl x509 -CA CAcert.pem -CAkey CAkey.pem -req -in petic-certificado-serv.pem -days 15 -extfile config1.txt -sha1 -CAcreateserial -out servidor-cert.pem
+Signature ok
+subject=/DC=root.com/OU=com/CN=root
+Getting CA Private Key
+Enter pass phrase for CAkey.pem:
+rafa@rafa:~/Documentos/Repositorios/SSI/P10$ ll
+total 36
+drwxrwxr-x  2 rafa rafa 4096 may 10 10:16 ./
+drwxrwxr-x 12 rafa rafa 4096 may 10 10:05 ../
+-rw-rw-r--  1 rafa rafa 1432 may 10 10:11 CAcert.pem
+-rw-rw-r--  1 rafa rafa   17 may 10 10:16 CAcert.srl
+-rw-rw-r--  1 rafa rafa 1834 may 10 10:11 CAkey.pem
+-rw-rw-r--  1 rafa rafa   67 may 10 10:15 config1.txt
+-rw-rw-r--  1 rafa rafa  940 may 10 10:14 petic-certificado-serv.pem
+-rw-rw-r--  1 rafa rafa 1253 may 10 10:16 servidor-cert.pem
+-rw-rw-r--  1 rafa rafa 1751 may 10 10:13 serv-priv.pem
+rafa@rafa:~/Documentos/Repositorios/SSI/P10$ openssl genrsa -des3 -passout pass:daniel1234 -out client-priv.pem 2048
+Generating RSA private key, 2048 bit long modulus
+.................................+++
+.....................................................................+++
+e is 65537 (0x10001)
+rafa@rafa:~/Documentos/Repositorios/SSI/P10$ openssl req -new -key client-priv.pem -passin pass:daniel1234 -subj "/DC=localhost/OU=com/CN=Fsv" -out petic-cert-client.pem
+rafa@rafa:~/Documentos/Repositorios/SSI/P10$ openssl x509 -CA CAcert.pem -CAkey CAkey.pem -req -in petic-cert-client.pem -set_serial 3 -days 15 -extfile config2.txt
+Signature ok
+subject=/DC=localhost/OU=com/CN=Fsv
+Getting CA Private Key
+Enter pass phrase for CAkey.pem:
+-----BEGIN CERTIFICATE-----
+MIIDaDCCAlCgAwIBAgIBAzANBgkqhkiG9w0BAQsFADCBkDELMAkGA1UEBhMCRVMx
+ETAPBgNVBAgMCFRlbmVyaWZlMRIwEAYDVQQHDAlMYSBMYWd1bmExDDAKBgNVBAoM
+A1VMTDEOMAwGA1UECwwFRVRTSUkxDzANBgNVBAMMBnVsbC5lczErMCkGCSqGSIb3
+DQEJARYccmFmYWVsLmhlcnJlcm8uMTNAdWxsLmVkdS5lczAeFw0xNjA1MTAwOTIw
+MzBaFw0xNjA1MjUwOTIwMzBaMDcxGTAXBgoJkiaJk/IsZAEZFglsb2NhbGhvc3Qx
+DDAKBgNVBAsMA2NvbTEMMAoGA1UEAwwDRnN2MIIBIjANBgkqhkiG9w0BAQEFAAOC
+AQ8AMIIBCgKCAQEAwVJYePsakhtt7lvfD/zLmqk54VPfbZpUL+osEjm4AQWEWoAe
+vvAW5f1QgjfKI4r7Cj3xEliOJ08T2e1STO+IMqljNs4YNoMllLhPnXRFg8iMVs2h
+NWmZoSEsFGIJl7bXA9cPau18gg778Cymr3b9VPisvEYcmlHJVaevrvu8P5+ZntgL
+AgJ2635Q1Ju2bFzgqjGLYjTYEaWd86D/BOlBL5pF4pk/ta9mJ0ik2JrzxWoWl8va
+xGlnfYA6UO8tGCz6rjIAJC3qHS7O+htK82RxxkDKxHKjTRMSBYgFIlw+vGBf/pLf
+2zyE7waymB78Pp9aCRC+dWIhN2iiaOERw3xiCQIDAQABoyUwIzAMBgNVHRMBAf8E
+AjAAMBMGA1UdJQQMMAoGCCsGAQUFBwMCMA0GCSqGSIb3DQEBCwUAA4IBAQA0LlIq
+rR3YgboIwCfIOs84INnV2e8xAQyzcriFd2e3EfSm+PRBpSpOaG2OvT5ZPa2/r4IR
+F7y3cBVYGaeHPIBFYG6idOE1Z/DsWxO9JV/xC0Anc1hkekgR/tD8r9C9vItftP9M
+ldsGF4QbiRGuj8OcesnZJkfUsuIszz7XTvftW4mKay62Cht9BPqcHoyd32ChHN2C
+K0i4pHomrg8CI5wkaZl/ReA4PJExBjBiYbA+YDgAXDO8ZeJz98V3ZZEv02WUtNeE
+pWVkLph3b8oaDbrjK3nDY+cNJoErSLh9GlfXJAf0Pig1VNw+FbY1vfqtl+8slI8u
+RoMw57ZNr60j0Du0
+-----END CERTIFICATE-----
+rafa@rafa:~/Documentos/Repositorios/SSI/P10$ ll
+total 48
+drwxrwxr-x  2 rafa rafa 4096 may 10 10:19 ./
+drwxrwxr-x 12 rafa rafa 4096 may 10 10:05 ../
+-rw-rw-r--  1 rafa rafa 1432 may 10 10:11 CAcert.pem
+-rw-rw-r--  1 rafa rafa   17 may 10 10:16 CAcert.srl
+-rw-rw-r--  1 rafa rafa 1834 may 10 10:11 CAkey.pem
+-rw-rw-r--  1 rafa rafa 1743 may 10 10:18 client-priv.pem
+-rw-rw-r--  1 rafa rafa   67 may 10 10:15 config1.txt
+-rw-rw-r--  1 rafa rafa   67 may 10 10:19 config2.txt
+-rw-rw-r--  1 rafa rafa  940 may 10 10:18 petic-cert-client.pem
+-rw-rw-r--  1 rafa rafa  940 may 10 10:14 petic-certificado-serv.pem
+-rw-rw-r--  1 rafa rafa 1253 may 10 10:16 servidor-cert.pem
+-rw-rw-r--  1 rafa rafa 1751 may 10 10:13 serv-priv.pem
+rafa@rafa:~/Documentos/Repositorios/SSI/P10$ openssl pkcs12 -export -in client-cert.pem -inkey client-priv.pem -certfile CAcert.pem -out cert-pck12.p12
+Error opening input file client-cert.pem
+client-cert.pem: No such file or directory
+rafa@rafa:~/Documentos/Repositorios/SSI/P10$ openssl x509 -CA CAcert.pem -CAkey CAkey.pem -req -in petic-cert-client.pem -set_serial 3 -days 15 -out client-cert.pem -extfile config2.txt
+Signature ok
+subject=/DC=localhost/OU=com/CN=Fsv
+Getting CA Private Key
+Enter pass phrase for CAkey.pem:
+rafa@rafa:~/Documentos/Repositorios/SSI/P10$ openssl pkcs12 -export -in client-cert.pem -inkey client-priv.pem -certfile CAcert.pem -out cert-pck12.p12
+Enter pass phrase for client-priv.pem:
+Enter Export Password:
+Verifying - Enter Export Password:
+rafa@rafa:~/Documentos/Repositorios/SSI/P10$ ls /etc/ssl
+certs  openssl.cnf  private
+rafa@rafa:~/Documentos/Repositorios/SSI/P10$ cat /etc/ssl/openssl.cnf 
+#
+# OpenSSL example configuration file.
+# This is mostly being used for generation of certificate requests.
+#
+
+# This definition stops the following lines choking if HOME isn't
+# defined.
+HOME			= .
+RANDFILE		= $ENV::HOME/.rnd
+
+# Extra OBJECT IDENTIFIER info:
+#oid_file		= $ENV::HOME/.oid
+oid_section		= new_oids
+
+# To use this configuration file with the "-extfile" option of the
+# "openssl x509" utility, name here the section containing the
+# X.509v3 extensions to use:
+# extensions		= 
+# (Alternatively, use a configuration file that has only
+# X.509v3 extensions in its main [= default] section.)
+
+[ new_oids ]
+
+# We can add new OIDs in here for use by 'ca', 'req' and 'ts'.
+# Add a simple OID like this:
+# testoid1=1.2.3.4
+# Or use config file substitution like this:
+# testoid2=${testoid1}.5.6
+
+# Policies used by the TSA examples.
+tsa_policy1 = 1.2.3.4.1
+tsa_policy2 = 1.2.3.4.5.6
+tsa_policy3 = 1.2.3.4.5.7
+
+####################################################################
+[ ca ]
+default_ca	= CA_default		# The default ca section
+
+####################################################################
+[ CA_default ]
+
+dir		= ./demoCA		# Where everything is kept
+certs		= $dir/certs		# Where the issued certs are kept
+crl_dir		= $dir/crl		# Where the issued crl are kept
+database	= $dir/index.txt	# database index file.
+#unique_subject	= no			# Set to 'no' to allow creation of
+					# several ctificates with same subject.
+new_certs_dir	= $dir/newcerts		# default place for new certs.
+
+certificate	= $dir/cacert.pem 	# The CA certificate
+serial		= $dir/serial 		# The current serial number
+crlnumber	= $dir/crlnumber	# the current crl number
+					# must be commented out to leave a V1 CRL
+crl		= $dir/crl.pem 		# The current CRL
+private_key	= $dir/private/cakey.pem# The private key
+RANDFILE	= $dir/private/.rand	# private random number file
+
+x509_extensions	= usr_cert		# The extentions to add to the cert
+
+# Comment out the following two lines for the "traditional"
+# (and highly broken) format.
+name_opt 	= ca_default		# Subject Name options
+cert_opt 	= ca_default		# Certificate field options
+
+# Extension copying option: use with caution.
+# copy_extensions = copy
+
+# Extensions to add to a CRL. Note: Netscape communicator chokes on V2 CRLs
+# so this is commented out by default to leave a V1 CRL.
+# crlnumber must also be commented out to leave a V1 CRL.
+# crl_extensions	= crl_ext
+
+default_days	= 365			# how long to certify for
+default_crl_days= 30			# how long before next CRL
+default_md	= default		# use public key default MD
+preserve	= no			# keep passed DN ordering
+
+# A few difference way of specifying how similar the request should look
+# For type CA, the listed attributes must be the same, and the optional
+# and supplied fields are just that :-)
+policy		= policy_match
+
+# For the CA policy
+[ policy_match ]
+countryName		= match
+stateOrProvinceName	= match
+organizationName	= match
+organizationalUnitName	= optional
+commonName		= supplied
+emailAddress		= optional
+
+# For the 'anything' policy
+# At this point in time, you must list all acceptable 'object'
+# types.
+[ policy_anything ]
+countryName		= optional
+stateOrProvinceName	= optional
+localityName		= optional
+organizationName	= optional
+organizationalUnitName	= optional
+commonName		= supplied
+emailAddress		= optional
+
+####################################################################
+[ req ]
+default_bits		= 2048
+default_keyfile 	= privkey.pem
+distinguished_name	= req_distinguished_name
+attributes		= req_attributes
+x509_extensions	= v3_ca	# The extentions to add to the self signed cert
+
+# Passwords for private keys if not present they will be prompted for
+# input_password = secret
+# output_password = secret
+
+# This sets a mask for permitted string types. There are several options. 
+# default: PrintableString, T61String, BMPString.
+# pkix	 : PrintableString, BMPString (PKIX recommendation before 2004)
+# utf8only: only UTF8Strings (PKIX recommendation after 2004).
+# nombstr : PrintableString, T61String (no BMPStrings or UTF8Strings).
+# MASK:XXXX a literal mask value.
+# WARNING: ancient versions of Netscape crash on BMPStrings or UTF8Strings.
+string_mask = utf8only
+
+# req_extensions = v3_req # The extensions to add to a certificate request
+
+[ req_distinguished_name ]
+countryName			= Country Name (2 letter code)
+countryName_default		= AU
+countryName_min			= 2
+countryName_max			= 2
+
+stateOrProvinceName		= State or Province Name (full name)
+stateOrProvinceName_default	= Some-State
+
+localityName			= Locality Name (eg, city)
+
+0.organizationName		= Organization Name (eg, company)
+0.organizationName_default	= Internet Widgits Pty Ltd
+
+# we can do this but it is not needed normally :-)
+#1.organizationName		= Second Organization Name (eg, company)
+#1.organizationName_default	= World Wide Web Pty Ltd
+
+organizationalUnitName		= Organizational Unit Name (eg, section)
+#organizationalUnitName_default	=
+
+commonName			= Common Name (e.g. server FQDN or YOUR name)
+commonName_max			= 64
+
+emailAddress			= Email Address
+emailAddress_max		= 64
+
+# SET-ex3			= SET extension number 3
+
+[ req_attributes ]
+challengePassword		= A challenge password
+challengePassword_min		= 4
+challengePassword_max		= 20
+
+unstructuredName		= An optional company name
+
+[ usr_cert ]
+
+# These extensions are added when 'ca' signs a request.
+
+# This goes against PKIX guidelines but some CAs do it and some software
+# requires this to avoid interpreting an end user certificate as a CA.
+
+basicConstraints=CA:FALSE
+
+# Here are some examples of the usage of nsCertType. If it is omitted
+# the certificate can be used for anything *except* object signing.
+
+# This is OK for an SSL server.
+# nsCertType			= server
+
+# For an object signing certificate this would be used.
+# nsCertType = objsign
+
+# For normal client use this is typical
+# nsCertType = client, email
+
+# and for everything including object signing:
+# nsCertType = client, email, objsign
+
+# This is typical in keyUsage for a client certificate.
+# keyUsage = nonRepudiation, digitalSignature, keyEncipherment
+
+# This will be displayed in Netscape's comment listbox.
+nsComment			= "OpenSSL Generated Certificate"
+
+# PKIX recommendations harmless if included in all certificates.
+subjectKeyIdentifier=hash
+authorityKeyIdentifier=keyid,issuer
+
+# This stuff is for subjectAltName and issuerAltname.
+# Import the email address.
+# subjectAltName=email:copy
+# An alternative to produce certificates that aren't
+# deprecated according to PKIX.
+# subjectAltName=email:move
+
+# Copy subject details
+# issuerAltName=issuer:copy
+
+#nsCaRevocationUrl		= http://www.domain.dom/ca-crl.pem
+#nsBaseUrl
+#nsRevocationUrl
+#nsRenewalUrl
+#nsCaPolicyUrl
+#nsSslServerName
+
+# This is required for TSA certificates.
+# extendedKeyUsage = critical,timeStamping
+
+[ v3_req ]
+
+# Extensions to add to a certificate request
+
+basicConstraints = CA:FALSE
+keyUsage = nonRepudiation, digitalSignature, keyEncipherment
+
+[ v3_ca ]
+
+
+# Extensions for a typical CA
+
+
+# PKIX recommendation.
+
+subjectKeyIdentifier=hash
+
+authorityKeyIdentifier=keyid:always,issuer
+
+# This is what PKIX recommends but some broken software chokes on critical
+# extensions.
+#basicConstraints = critical,CA:true
+# So we do this instead.
+basicConstraints = CA:true
+
+# Key usage: this is typical for a CA certificate. However since it will
+# prevent it being used as an test self-signed certificate it is best
+# left out by default.
+# keyUsage = cRLSign, keyCertSign
+
+# Some might want this also
+# nsCertType = sslCA, emailCA
+
+# Include email address in subject alt name: another PKIX recommendation
+# subjectAltName=email:copy
+# Copy issuer details
+# issuerAltName=issuer:copy
+
+# DER hex encoding of an extension: beware experts only!
+# obj=DER:02:03
+# Where 'obj' is a standard or added object
+# You can even override a supported extension:
+# basicConstraints= critical, DER:30:03:01:01:FF
+
+[ crl_ext ]
+
+# CRL extensions.
+# Only issuerAltName and authorityKeyIdentifier make any sense in a CRL.
+
+# issuerAltName=issuer:copy
+authorityKeyIdentifier=keyid:always
+
+[ proxy_cert_ext ]
+# These extensions should be added when creating a proxy certificate
+
+# This goes against PKIX guidelines but some CAs do it and some software
+# requires this to avoid interpreting an end user certificate as a CA.
+
+basicConstraints=CA:FALSE
+
+# Here are some examples of the usage of nsCertType. If it is omitted
+# the certificate can be used for anything *except* object signing.
+
+# This is OK for an SSL server.
+# nsCertType			= server
+
+# For an object signing certificate this would be used.
+# nsCertType = objsign
+
+# For normal client use this is typical
+# nsCertType = client, email
+
+# and for everything including object signing:
+# nsCertType = client, email, objsign
+
+# This is typical in keyUsage for a client certificate.
+# keyUsage = nonRepudiation, digitalSignature, keyEncipherment
+
+# This will be displayed in Netscape's comment listbox.
+nsComment			= "OpenSSL Generated Certificate"
+
+# PKIX recommendations harmless if included in all certificates.
+subjectKeyIdentifier=hash
+authorityKeyIdentifier=keyid,issuer
+
+# This stuff is for subjectAltName and issuerAltname.
+# Import the email address.
+# subjectAltName=email:copy
+# An alternative to produce certificates that aren't
+# deprecated according to PKIX.
+# subjectAltName=email:move
+
+# Copy subject details
+# issuerAltName=issuer:copy
+
+#nsCaRevocationUrl		= http://www.domain.dom/ca-crl.pem
+#nsBaseUrl
+#nsRevocationUrl
+#nsRenewalUrl
+#nsCaPolicyUrl
+#nsSslServerName
+
+# This really needs to be in place for it to be a proxy certificate.
+proxyCertInfo=critical,language:id-ppl-anyLanguage,pathlen:3,policy:foo
+
+####################################################################
+[ tsa ]
+
+default_tsa = tsa_config1	# the default TSA section
+
+[ tsa_config1 ]
+
+# These are used by the TSA reply generation only.
+dir		= ./demoCA		# TSA root directory
+serial		= $dir/tsaserial	# The current serial number (mandatory)
+crypto_device	= builtin		# OpenSSL engine to use for signing
+signer_cert	= $dir/tsacert.pem 	# The TSA signing certificate
+					# (optional)
+certs		= $dir/cacert.pem	# Certificate chain to include in reply
+					# (optional)
+signer_key	= $dir/private/tsakey.pem # The TSA private key (optional)
+
+default_policy	= tsa_policy1		# Policy if request did not specify it
+					# (optional)
+other_policies	= tsa_policy2, tsa_policy3	# acceptable policies (optional)
+digests		= md5, sha1		# Acceptable message digests (mandatory)
+accuracy	= secs:1, millisecs:500, microsecs:100	# (optional)
+clock_precision_digits  = 0	# number of digits after dot. (optional)
+ordering		= yes	# Is ordering defined for timestamps?
+				# (optional, default: no)
+tsa_name		= yes	# Must the TSA name be included in the reply?
+				# (optional, default: no)
+ess_cert_id_chain	= no	# Must the ESS cert id chain be included?
+				# (optional, default: no)
+rafa@rafa:~/Documentos/Repositorios/SSI/P10$ nano /etc/ssl/openssl.cnf 
+rafa@rafa:~/Documentos/Repositorios/SSI/P10$ cd /etc/ss
+bash: cd: /etc/ss: No existe el archivo o el directorio
+rafa@rafa:~/Documentos/Repositorios/SSI/P10$ cd /etc/ssl
+rafa@rafa:/etc/ssl$ cp openssl.cnf openssl_old.cnf
+cp: no se puede crear el fichero regular 'openssl_old.cnf': Permiso denegado
+rafa@rafa:/etc/ssl$ sudo cp openssl.cnf openssl_old.cnf
+[sudo] password for rafa: 
+rafa@rafa:/etc/ssl$ nano openssl.cnf 
+rafa@rafa:/etc/ssl$ nano openssl.cnf 
+rafa@rafa:/etc/ssl$ cd /home/rafa/Documentos/Repositorios/SSI/P10
+rafa@rafa:~/Documentos/Repositorios/SSI/P10$ openssl ca -gencrl -out listarev.crl
+Using configuration from /usr/lib/ssl/openssl.cnf
+Error opening CA private key ./demoCA/private/cakey.pem
+140567440471704:error:02001002:system library:fopen:No such file or directory:bss_file.c:398:fopen('./demoCA/private/cakey.pem','r')
+140567440471704:error:20074002:BIO routines:FILE_CTRL:system lib:bss_file.c:400:
+unable to load CA private key
+rafa@rafa:~/Documentos/Repositorios/SSI/P10$ cd /etc/ssl/
+rafa@rafa:/etc/ssl$ sudo nano openssl.cnf 
+rafa@rafa:/etc/ssl$ cd /home/rafa/Documentos/Repositorios/SSI/P10
+rafa@rafa:~/Documentos/Repositorios/SSI/P10$ openssl ca -gencrl -out listarev.crl
+Using configuration from /usr/lib/ssl/openssl.cnf
+Error opening CA private key ./demoCA/private/CAkey.pem
+139805220755096:error:02001002:system library:fopen:No such file or directory:bss_file.c:398:fopen('./demoCA/private/CAkey.pem','r')
+139805220755096:error:20074002:BIO routines:FILE_CTRL:system lib:bss_file.c:400:
+unable to load CA private key
+rafa@rafa:~/Documentos/Repositorios/SSI/P10$ cd /etc/ssl
+rafa@rafa:/etc/ssl$ ll
+total 72
+drwxr-xr-x   4 root root      4096 may 10 10:35 ./
+drwxr-xr-x 163 root root     12288 may 10 09:37 ../
+drwxr-xr-x   3 root root     24576 abr 12 22:16 certs/
+-rw-r--r--   1 root root     10835 may 10 10:35 openssl.cnf
+-rw-r--r--   1 root root     10835 may 10 10:32 openssl_old.cnf
+drwx--x---   2 root ssl-cert  4096 dic 15 09:11 private/
+rafa@rafa:/etc/ssl$ sudo nano openssl.cnf 
+rafa@rafa:/etc/ssl$ cd /home/rafa/Documentos/Repositorios/SSI/P10
+rafa@rafa:~/Documentos/Repositorios/SSI/P10$ openssl ca -gencrl -out listarev.crl
+Using configuration from /usr/lib/ssl/openssl.cnf
+Error opening CA private key ./demoCA/private/CAkey.pem
+140590654002840:error:02001002:system library:fopen:No such file or directory:bss_file.c:398:fopen('./demoCA/private/CAkey.pem','r')
+140590654002840:error:20074002:BIO routines:FILE_CTRL:system lib:bss_file.c:400:
+unable to load CA private key
+rafa@rafa:~/Documentos/Repositorios/SSI/P10$ cd /usr/lib/ssl/
+rafa@rafa:/usr/lib/ssl$ sudo nano openssl.cnf 
+rafa@rafa:/usr/lib/ssl$ cd /home/rafa/Documentos/Repositorios/SSI/P10
+rafa@rafa:~/Documentos/Repositorios/SSI/P10$ openssl ca -gencrl -out listarev.crl
+Using configuration from /usr/lib/ssl/openssl.cnf
+Error opening CA private key ./demoCA/CAkey.pem
+140710332470936:error:02001002:system library:fopen:No such file or directory:bss_file.c:398:fopen('./demoCA/CAkey.pem','r')
+140710332470936:error:20074002:BIO routines:FILE_CTRL:system lib:bss_file.c:400:
+unable to load CA private key
+rafa@rafa:~/Documentos/Repositorios/SSI/P10$ cd /usr/lib/ssl/rafa@rafa:/usr/lib/ssl$ sudo nano openssl.cnf 
+rafa@rafa:/usr/lib/ssl$ cd /home/rafa/Documentos/Repositorios/SSI/P10
+rafa@rafa:~/Documentos/Repositorios/SSI/P10$ openssl ca -gencrl -out listarev.crl
+Using configuration from /usr/lib/ssl/openssl.cnf
+Enter pass phrase for /home/rafa/Documentos/Repositorios/SSI/P10/CAkey.pem:
+/home/rafa/Documentos/Repositorios/SSI/P10/index.txt: No such file or directory
+unable to open '/home/rafa/Documentos/Repositorios/SSI/P10/index.txt'
+140077380060824:error:02001002:system library:fopen:No such file or directory:bss_file.c:398:fopen('/home/rafa/Documentos/Repositorios/SSI/P10/index.txt','r')
+140077380060824:error:20074002:BIO routines:FILE_CTRL:system lib:bss_file.c:400:
+rafa@rafa:~/Documentos/Repositorios/SSI/P10$ touch index.txt
+rafa@rafa:~/Documentos/Repositorios/SSI/P10$ openssl ca -gencrl -out listarev.crl
+Using configuration from /usr/lib/ssl/openssl.cnf
+Enter pass phrase for /home/rafa/Documentos/Repositorios/SSI/P10/CAkey.pem:
+/home/rafa/Documentos/Repositorios/SSI/P10/crlnumber: No such file or directory
+error while loading CRL number
+140321709745816:error:02001002:system library:fopen:No such file or directory:bss_file.c:398:fopen('/home/rafa/Documentos/Repositorios/SSI/P10/crlnumber','r')
+140321709745816:error:20074002:BIO routines:FILE_CTRL:system lib:bss_file.c:400:
+rafa@rafa:~/Documentos/Repositorios/SSI/P10$ cd /usr/lib/ssl/rafa@rafa:/usr/lib/ssl$ sudo nano openssl.cnf 
+rafa@rafa:/usr/lib/ssl$ cd /home/rafa/Documentos/Repositorios/SSI/P10
+rafa@rafa:~/Documentos/Repositorios/SSI/P10$ openssl ca -gencrl -out listarev.crl
+Using configuration from /usr/lib/ssl/openssl.cnf
+Enter pass phrase for /home/rafa/Documentos/Repositorios/SSI/P10/CAkey.pem:
+rafa@rafa:~/Documentos/Repositorios/SSI/P10$ openssl ca -gencrl -out listarev.pem
+Using configuration from /usr/lib/ssl/openssl.cnf
+Enter pass phrase for /home/rafa/Documentos/Repositorios/SSI/P10/CAkey.pem:
+rafa@rafa:~/Documentos/Repositorios/SSI/P10$ openssl ca -revoke client-cert.pem
+Using configuration from /usr/lib/ssl/openssl.cnf
+Enter pass phrase for /home/rafa/Documentos/Repositorios/SSI/P10/CAkey.pem:
+Adding Entry with serial number 03 to DB for /DC=localhost/OU=com/CN=Fsv
+Revoking Certificate 03.
+Data Base Updated
+rafa@rafa:~/Documentos/Repositorios/SSI/P10$ openssl ca -gencrl -out listarev.crl
+Using configuration from /usr/lib/ssl/openssl.cnf
+Enter pass phrase for /home/rafa/Documentos/Repositorios/SSI/P10/CAkey.pem:
+rafa@rafa:~/Documentos/Repositorios/SSI/P10$ cd /usr/lib/ssl/rafa@rafa:/usr/lib/ssl$ sudo nano openssl.cnf 
+rafa@rafa:/usr/lib/ssl$ cd /home/rafa/Documentos/Repositorios/SSI/P10
+rafa@rafa:~/Documentos/Repositorios/SSI/P10$ ll
+total 72
+drwxrwxr-x  2 rafa rafa 4096 may 10 10:40 ./
+drwxrwxr-x 12 rafa rafa 4096 may 10 10:05 ../
+-rw-rw-r--  1 rafa rafa 1432 may 10 10:11 CAcert.pem
+-rw-rw-r--  1 rafa rafa   17 may 10 10:16 CAcert.srl
+-rw-rw-r--  1 rafa rafa 1834 may 10 10:11 CAkey.pem
+-rw-rw-r--  1 rafa rafa 3541 may 10 10:27 cert-pck12.p12
+-rw-rw-r--  1 rafa rafa 1241 may 10 10:26 client-cert.pem
+-rw-rw-r--  1 rafa rafa 1743 may 10 10:18 client-priv.pem
+-rw-rw-r--  1 rafa rafa   67 may 10 10:15 config1.txt
+-rw-rw-r--  1 rafa rafa   67 may 10 10:19 config2.txt
+-rw-rw-r--  1 rafa rafa   69 may 10 10:40 index.txt
+-rw-rw-r--  1 rafa rafa   21 may 10 10:40 index.txt.attr
+-rw-rw-r--  1 rafa rafa    0 may 10 10:39 index.txt.old
+-rw-rw-r--  1 rafa rafa  723 may 10 10:40 listarev.crl
+-rw-rw-r--  1 rafa rafa  694 may 10 10:40 listarev.pem
+-rw-rw-r--  1 rafa rafa  940 may 10 10:18 petic-cert-client.pem
+-rw-rw-r--  1 rafa rafa  940 may 10 10:14 petic-certificado-serv.pem
+-rw-rw-r--  1 rafa rafa 1253 may 10 10:16 servidor-cert.pem
+-rw-rw-r--  1 rafa rafa 1751 may 10 10:13 serv-priv.pem
+rafa@rafa:~/Documentos/Repositorios/SSI/P10$ mkdir SegundaParte
+rafa@rafa:~/Documentos/Repositorios/SSI/P10$ cp cert-pck12.p12 SegundaParte/
+rafa@rafa:~/Documentos/Repositorios/SSI/P10$ ll
+total 76
+drwxrwxr-x  3 rafa rafa 4096 may 10 10:54 ./
+drwxrwxr-x 12 rafa rafa 4096 may 10 10:05 ../
+-rw-rw-r--  1 rafa rafa 1432 may 10 10:11 CAcert.pem
+-rw-rw-r--  1 rafa rafa   17 may 10 10:16 CAcert.srl
+-rw-rw-r--  1 rafa rafa 1834 may 10 10:11 CAkey.pem
+-rw-rw-r--  1 rafa rafa 3541 may 10 10:27 cert-pck12.p12
+-rw-rw-r--  1 rafa rafa 1241 may 10 10:26 client-cert.pem
+-rw-rw-r--  1 rafa rafa 1743 may 10 10:18 client-priv.pem
+-rw-rw-r--  1 rafa rafa   67 may 10 10:15 config1.txt
+-rw-rw-r--  1 rafa rafa   67 may 10 10:19 config2.txt
+-rw-rw-r--  1 rafa rafa   69 may 10 10:40 index.txt
+-rw-rw-r--  1 rafa rafa   21 may 10 10:40 index.txt.attr
+-rw-rw-r--  1 rafa rafa    0 may 10 10:39 index.txt.old
+-rw-rw-r--  1 rafa rafa  723 may 10 10:40 listarev.crl
+-rw-rw-r--  1 rafa rafa  694 may 10 10:40 listarev.pem
+-rw-rw-r--  1 rafa rafa  940 may 10 10:18 petic-cert-client.pem
+-rw-rw-r--  1 rafa rafa  940 may 10 10:14 petic-certificado-serv.pem
+drwxrwxr-x  2 rafa rafa 4096 may 10 10:54 SegundaParte/
+-rw-rw-r--  1 rafa rafa 1253 may 10 10:16 servidor-cert.pem
+-rw-rw-r--  1 rafa rafa 1751 may 10 10:13 serv-priv.pem
+rafa@rafa:~/Documentos/Repositorios/SSI/P10$ ll SegundaParte/
+total 12
+drwxrwxr-x 2 rafa rafa 4096 may 10 10:54 ./
+drwxrwxr-x 3 rafa rafa 4096 may 10 10:54 ../
+-rw-rw-r-- 1 rafa rafa 3541 may 10 10:54 cert-pck12.p12
+rafa@rafa:~/Documentos/Repositorios/SSI/P10$ cd SegundaParte/
+rafa@rafa:~/Documentos/Repositorios/SSI/P10/SegundaParte$ ^C
+rafa@rafa:~/Documentos/Repositorios/SSI/P10/SegundaParte$ pkcs12 -in cert-pck12.p12 -out cert-pck12.pem -clcerts
+pkcs12: no se encontró la orden
+rafa@rafa:~/Documentos/Repositorios/SSI/P10/SegundaParte$ openssl pkcs12 -in cert-pck12.p12 -out cert-pck12.pem -clcerts
+Enter Import Password:
+MAC verified OK
+Enter PEM pass phrase:
+Verifying - Enter PEM pass phrase:
+rafa@rafa:~/Documentos/Repositorios/SSI/P10/SegundaParte$ x509 -text -in cert-pck12.pem
+x509: no se encontró la orden
+rafa@rafa:~/Documentos/Repositorios/SSI/P10/SegundaParte$ openssl x509 -text -in cert-pck12.pem
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 3 (0x3)
+    Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=ES, ST=Tenerife, L=La Laguna, O=ULL, OU=ETSII, CN=ull.es/emailAddress=rafael.herrero.13@ull.edu.es
+        Validity
+            Not Before: May 10 09:26:10 2016 GMT
+            Not After : May 25 09:26:10 2016 GMT
+        Subject: DC=localhost, OU=com, CN=Fsv
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:c1:52:58:78:fb:1a:92:1b:6d:ee:5b:df:0f:fc:
+                    cb:9a:a9:39:e1:53:df:6d:9a:54:2f:ea:2c:12:39:
+                    b8:01:05:84:5a:80:1e:be:f0:16:e5:fd:50:82:37:
+                    ca:23:8a:fb:0a:3d:f1:12:58:8e:27:4f:13:d9:ed:
+                    52:4c:ef:88:32:a9:63:36:ce:18:36:83:25:94:b8:
+                    4f:9d:74:45:83:c8:8c:56:cd:a1:35:69:99:a1:21:
+                    2c:14:62:09:97:b6:d7:03:d7:0f:6a:ed:7c:82:0e:
+                    fb:f0:2c:a6:af:76:fd:54:f8:ac:bc:46:1c:9a:51:
+                    c9:55:a7:af:ae:fb:bc:3f:9f:99:9e:d8:0b:02:02:
+                    76:eb:7e:50:d4:9b:b6:6c:5c:e0:aa:31:8b:62:34:
+                    d8:11:a5:9d:f3:a0:ff:04:e9:41:2f:9a:45:e2:99:
+                    3f:b5:af:66:27:48:a4:d8:9a:f3:c5:6a:16:97:cb:
+                    da:c4:69:67:7d:80:3a:50:ef:2d:18:2c:fa:ae:32:
+                    00:24:2d:ea:1d:2e:ce:fa:1b:4a:f3:64:71:c6:40:
+                    ca:c4:72:a3:4d:13:12:05:88:05:22:5c:3e:bc:60:
+                    5f:fe:92:df:db:3c:84:ef:06:b2:98:1e:fc:3e:9f:
+                    5a:09:10:be:75:62:21:37:68:a2:68:e1:11:c3:7c:
+                    62:09
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Basic Constraints: critical
+                CA:FALSE
+            X509v3 Extended Key Usage: 
+                TLS Web Client Authentication
+    Signature Algorithm: sha256WithRSAEncryption
+         47:dd:80:ec:9a:de:fc:cc:90:78:47:28:83:a9:61:20:34:1b:
+         57:cb:a9:38:3d:14:e7:18:3b:f3:a0:b8:9b:a2:65:21:80:5f:
+         e7:82:d0:22:67:fc:4c:07:ab:db:e2:d7:3a:85:9f:2d:8c:83:
+         87:5f:16:e4:f1:86:66:3e:28:d3:8b:98:eb:89:fd:e2:70:6b:
+         cb:21:18:f2:7b:c4:be:13:e6:78:8c:96:ae:6a:e5:37:7e:7c:
+         8d:44:66:c5:c0:75:84:9d:c4:27:fe:dd:58:15:85:28:60:2a:
+         08:b7:14:5a:5d:48:c2:8e:df:8e:3e:d4:77:66:35:2c:b5:81:
+         d9:51:80:95:ae:15:18:ce:c2:58:3e:98:d3:93:43:75:48:b1:
+         81:3c:59:10:6a:61:85:02:9b:dc:6d:10:44:3e:66:dc:1f:93:
+         23:16:88:e1:c6:46:45:c5:e5:30:33:ca:b6:fc:26:cc:2f:d7:
+         39:24:1c:b6:75:c4:69:f1:82:e2:c7:d9:5c:8a:4f:b8:af:c8:
+         87:cd:8e:c3:bc:03:04:e4:f8:91:76:b9:8d:75:d8:8c:4d:c6:
+         5d:52:b2:cc:42:ad:2f:73:1b:4a:81:3b:04:b2:01:88:9c:89:
+         4d:5c:98:ce:a9:47:9e:e4:4e:0c:3f:f8:b4:90:a6:d6:eb:91:
+         8c:ed:6b:54
+-----BEGIN CERTIFICATE-----
+MIIDaDCCAlCgAwIBAgIBAzANBgkqhkiG9w0BAQsFADCBkDELMAkGA1UEBhMCRVMx
+ETAPBgNVBAgMCFRlbmVyaWZlMRIwEAYDVQQHDAlMYSBMYWd1bmExDDAKBgNVBAoM
+A1VMTDEOMAwGA1UECwwFRVRTSUkxDzANBgNVBAMMBnVsbC5lczErMCkGCSqGSIb3
+DQEJARYccmFmYWVsLmhlcnJlcm8uMTNAdWxsLmVkdS5lczAeFw0xNjA1MTAwOTI2
+MTBaFw0xNjA1MjUwOTI2MTBaMDcxGTAXBgoJkiaJk/IsZAEZFglsb2NhbGhvc3Qx
+DDAKBgNVBAsMA2NvbTEMMAoGA1UEAwwDRnN2MIIBIjANBgkqhkiG9w0BAQEFAAOC
+AQ8AMIIBCgKCAQEAwVJYePsakhtt7lvfD/zLmqk54VPfbZpUL+osEjm4AQWEWoAe
+vvAW5f1QgjfKI4r7Cj3xEliOJ08T2e1STO+IMqljNs4YNoMllLhPnXRFg8iMVs2h
+NWmZoSEsFGIJl7bXA9cPau18gg778Cymr3b9VPisvEYcmlHJVaevrvu8P5+ZntgL
+AgJ2635Q1Ju2bFzgqjGLYjTYEaWd86D/BOlBL5pF4pk/ta9mJ0ik2JrzxWoWl8va
+xGlnfYA6UO8tGCz6rjIAJC3qHS7O+htK82RxxkDKxHKjTRMSBYgFIlw+vGBf/pLf
+2zyE7waymB78Pp9aCRC+dWIhN2iiaOERw3xiCQIDAQABoyUwIzAMBgNVHRMBAf8E
+AjAAMBMGA1UdJQQMMAoGCCsGAQUFBwMCMA0GCSqGSIb3DQEBCwUAA4IBAQBH3YDs
+mt78zJB4RyiDqWEgNBtXy6k4PRTnGDvzoLibomUhgF/ngtAiZ/xMB6vb4tc6hZ8t
+jIOHXxbk8YZmPijTi5jrif3icGvLIRjye8S+E+Z4jJauauU3fnyNRGbFwHWEncQn
+/t1YFYUoYCoItxRaXUjCjt+OPtR3ZjUstYHZUYCVrhUYzsJYPpjTk0N1SLGBPFkQ
+amGFApvcbRBEPmbcH5MjFojhxkZFxeUwM8q2/CbML9c5JBy2dcRp8YLix9lcik+4
+r8iHzY7DvAME5PiRdrmNddiMTcZdUrLMQq0vcxtKgTsEsgGInIlNXJjOqUee5E4M
+P/i0kKbW65GM7WtU
+-----END CERTIFICATE-----
+rafa@rafa:~/Documentos/Repositorios/SSI/P10/SegundaParte$ openssl rsa -in cert-pck12.pem -out tuclave_publica.pem -pubout
+Enter pass phrase for cert-pck12.pem:
+writing RSA key
+rafa@rafa:~/Documentos/Repositorios/SSI/P10/SegundaParte$ 
+rafa@rafa:~/Documentos/Repositorios/SSI/P10/SegundaParte$ ^C
+rafa@rafa:~/Documentos/Repositorios/SSI/P10/SegundaParte$ openssl rsa -in cert-pck12.pem -des3 -out tuclaveprivada.pem
+Enter pass phrase for cert-pck12.pem:
+writing RSA key
+Enter PEM pass phrase:
+Verifying - Enter PEM pass phrase:
+rafa@rafa:~/Documentos/Repositorios/SSI/P10/SegundaParte$ openssl dgst -sha1 -sign tucertificado.pem -out Firmado.sig
+Error opening key file tucertificado.pem
+140149877364376:error:02001002:system library:fopen:No such file or directory:bss_file.c:398:fopen('tucertificado.pem','r')
+140149877364376:error:20074002:BIO routines:FILE_CTRL:system lib:bss_file.c:400:
+unable to load key file
+rafa@rafa:~/Documentos/Repositorios/SSI/P10/SegundaParte$ openssl dgst -sha1 -sign cert-pck12.pem -out Firmado.sig Fichero.txt
+Enter pass phrase for cert-pck12.pem:
+Fichero.txt: No such file or directory
+rafa@rafa:~/Documentos/Repositorios/SSI/P10/SegundaParte$ echo "hola hola caracola" > Fichero.txt
+rafa@rafa:~/Documentos/Repositorios/SSI/P10/SegundaParte$ openssl dgst -sha1 -sign cert-pck12.pem -out Firmado.sig Fichero.txt
+Enter pass phrase for cert-pck12.pem:
+rafa@rafa:~/Documentos/Repositorios/SSI/P10/SegundaParte$ openssl dgst -sha1 -verify cert-pck12.pem -signature Firmado.sig Fichero.txt
+unable to load key file
+rafa@rafa:~/Documentos/Repositorios/SSI/P10/SegundaParte$ ll
+total 32
+drwxrwxr-x 2 rafa rafa 4096 may 10 11:09 ./
+drwxrwxr-x 3 rafa rafa 4096 may 10 11:06 ../
+-rw-rw-r-- 1 rafa rafa 3541 may 10 10:54 cert-pck12.p12
+-rw-rw-r-- 1 rafa rafa 3431 may 10 10:58 cert-pck12.pem
+-rw-rw-r-- 1 rafa rafa   19 may 10 11:09 Fichero.txt
+-rw-rw-r-- 1 rafa rafa  256 may 10 11:09 Firmado.sig
+-rw-rw-r-- 1 rafa rafa 1743 may 10 11:07 tuclaveprivada.pem
+-rw-rw-r-- 1 rafa rafa  451 may 10 11:04 tuclave_publica.pem
+rafa@rafa:~/Documentos/Repositorios/SSI/P10/SegundaParte$ openssl dgst -sha1 -sign tuclaveprivada.pem -out Firmado.sig Fichero.txt
+Enter pass phrase for tuclaveprivada.pem:
+rafa@rafa:~/Documentos/Repositorios/SSI/P10/SegundaParte$ openssl dgst -sha1 -verify cert-pck12.pem -signature Firmado.sig Fichero.txt
+unable to load key file
+rafa@rafa:~/Documentos/Repositorios/SSI/P10/SegundaParte$ openssl dgst -sha1 -verify tuclave_publica.pem -signature Firmado.sig Fichero.txt
+Verified OK
+rafa@rafa:~/Documentos/Repositorios/SSI/P10/SegundaParte$ 
