@@ -2,6 +2,31 @@
 
 fiat::fiat(void){}
 
+fiat::fiat(boost::multiprecision::mpz_int p, boost::multiprecision::mpz_int q, boost::multiprecision::mpz_int s){
+	
+	if (lehman(p))
+		p_ = p;
+	else
+		cout << "El numero p: " << p << ", no es primo." << endl;
+
+	if (lehman(q))
+		q_ = q;
+	else
+		cout << "El numero q: " << q << ", no es primo." << endl;
+
+	n_ = (p_)*(q_);
+
+	if (euclides(n_,s,false)==1)
+		s_ = s;
+	else if (0 > s || n_ < s)
+		cout << "El numero s: " << s << ", no se encuentra entre 0 y " << n_ << endl;
+	else
+		cout << "El numero s: " << s << ", no es coprimo con " << n_ << endl;
+
+	v_ = expo(s_,2,n_);
+	x_ = 0;
+}
+
 fiat::~fiat(void){}
 
 boost::multiprecision::mpz_int fiat::euclides(boost::multiprecision::mpz_int a, boost::multiprecision::mpz_int b, bool modo){
@@ -44,8 +69,7 @@ bool fiat::lehman(boost::multiprecision::mpz_int p){
 		if((expo(ai[i],((p-1)/2),p))!=1 && (expo(ai[i],((p-1)/2),p))!=p-1)
 			es_primo=false;
 	}
-	return es_primo;
-		
+	return es_primo;		
 }
 
 boost::multiprecision::mpz_int fiat::aleatorio (boost::multiprecision::mpz_int rg_1, boost::multiprecision::mpz_int rg_2){
@@ -59,20 +83,64 @@ boost::multiprecision::mpz_int fiat::aleatorio (boost::multiprecision::mpz_int r
     return distr(eng);
 }
 
-boost::multiprecision::mpz_int fiat::expo(boost::multiprecision::mpz_int base, boost::multiprecision::mpz_int exp_, boost::multiprecision::mpz_int primo){
+boost::multiprecision::mpz_int fiat::expo(boost::multiprecision::mpz_int base, boost::multiprecision::mpz_int exp_, boost::multiprecision::mpz_int modulo){
 	boost::multiprecision::mpz_int x = 1;
-	boost::multiprecision::mpz_int y = base%primo;
+	boost::multiprecision::mpz_int y = base%modulo;
 	boost::multiprecision::mpz_int copia_sec = exp_;
 
 	while (copia_sec>0 && y>1){
 		if (copia_sec%2==1){
-			x = (x*y)%primo;
+			x = (x*y)%modulo;
 			copia_sec--;
 		}
 		else{
-			y = (y*y)%primo;
+			y = (y*y)%modulo;
 			copia_sec = copia_sec/2;
 		}
 	}
 	return x;
+}
+
+boost::multiprecision::mpz_int fiat::get_n(void){
+	return n_;
+}
+
+boost::multiprecision::mpz_int fiat::get_v(void){
+	return v_;
+}
+
+boost::multiprecision::mpz_int fiat::get_a(void){
+	return expo(x_,2,n_);
+}
+
+boost::multiprecision::mpz_int fiat::get_y(boost::multiprecision::mpz_int e){
+	if (e!=0 && e!=1)
+		cout << "El numero e: " << e << ", no es un bit" << endl;
+
+	if (e==0)
+		return expo(x_, 1, n_);
+	else
+		return expo((x_*s_), 1, n_);
+}
+
+void fiat::set_x (boost::multiprecision::mpz_int x){
+	if (0 > x || n_ < x)	
+		cout << "El numero x: " << x << ", no se encuentra entre 0 y " << n_ << endl;
+	x_ = x;
+}
+
+boost::multiprecision::mpz_int fiat::pow_multiprecision (boost::multiprecision::mpz_int base, boost::multiprecision::mpz_int exp_){
+	boost::multiprecision::mpz_int resultado=1;
+
+	for (boost::multiprecision::mpz_int i=0; i<exp_;i++)
+		resultado = resultado * base;
+	
+	return resultado;
+}
+
+bool fiat::verificacion(boost::multiprecision::mpz_int y, boost::multiprecision::mpz_int a, boost::multiprecision::mpz_int v, boost::multiprecision::mpz_int n, boost::multiprecision::mpz_int e){
+	if (e==0)
+		return expo((pow_multiprecision(y,2)),1,n) == expo(a,1,n);
+	else
+		return expo((pow_multiprecision(y,2)),1,n) == expo((a*v),1,n);
 }
